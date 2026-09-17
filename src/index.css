@@ -1,0 +1,223 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg: #000000;
+    --fg: #ffffff;
+    --accent: #00ff88;
+    --accent-dim: #00cc6a;
+    --accent-glow: rgba(0, 255, 136, 0.18);
+    --card-bg: #0a0a0a;
+    --card-border: #1a1a1a;
+    --card-hover: #141414;
+    --muted: #8e8e93;
+    --subtle: #48484a;
+    --danger: #ff3366;
+    --warning: #ffaa00;
+    --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  .light {
+    --bg: #f8fafc;
+    --fg: #0a0f1d;
+    --accent: #00994f;
+    --accent-dim: #007a3e;
+    --accent-glow: rgba(0, 153, 79, 0.15);
+    --card-bg: #ffffff;
+    --card-border: #e2e8f0;
+    --card-hover: #f1f5f9;
+    --muted: #64748b;
+    --subtle: #94a3b8;
+    --danger: #e11d48;
+    --warning: #d97706;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+
+  body {
+    font-family: var(--font-display);
+    background-color: var(--bg);
+    color: var(--fg);
+    transition: background-color 0.25s ease, color 0.25s ease;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: #000000;
+  }
+}
+
+/* Custom Cursor (Matching saving.careers original implementation) */
+@media (pointer: fine) {
+  body.has-custom-cursor,
+  body.has-custom-cursor a,
+  body.has-custom-cursor button,
+  body.has-custom-cursor input,
+  body.has-custom-cursor select,
+  body.has-custom-cursor textarea,
+  body.has-custom-cursor [role="button"],
+  body.has-custom-cursor .cursor-pointer {
+    cursor: none !important;
+  }
+}
+
+.cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  margin-left: -10px;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, opacity 0.2s ease;
+  mix-blend-mode: difference;
+}
+
+.cursor-dot {
+  position: fixed;
+  width: 4px;
+  height: 4px;
+  margin-top: -2px;
+  margin-left: -2px;
+  background: var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10001;
+  transition: opacity 0.2s ease;
+  mix-blend-mode: difference;
+}
+
+body.cursor-hover .cursor {
+  transform: scale(2.2);
+  background-color: rgba(0, 255, 136, 0.15);
+  border-color: #00ff88;
+}
+
+@media (max-width: 768px), (pointer: coarse) {
+  .cursor,
+  .cursor-dot {
+    display: none !important;
+  }
+  body.has-custom-cursor,
+  body.has-custom-cursor a,
+  body.has-custom-cursor button,
+  body.has-custom-cursor input,
+  body.has-custom-cursor select,
+  body.has-custom-cursor textarea,
+  body.has-custom-cursor [role="button"],
+  body.has-custom-cursor .cursor-pointer {
+    cursor: auto !important;
+  }
+}
+
+/* Authentic SVG Grain Overlay from saving.careers */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9994;
+  opacity: 0.04;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/></filter><rect width='200' height='200' filter='url(%23n)' opacity='1'/></svg>");
+}
+
+.light .grain-overlay {
+  opacity: 0.025;
+}
+
+/* 3D Tilt Card interactive styles */
+.tilt-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono-code {
+  font-family: var(--font-mono);
+}
+
+.glow-accent {
+  box-shadow: 0 0 35px var(--accent-glow);
+}
+
+.border-accent-subtle {
+  border-color: rgba(0, 255, 136, 0.2);
+}
+
+/* Site Credits */
+.poweredBy {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  width: fit-content;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+}
+
+.light .poweredBy {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.creditLogo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  padding: 4px;
+  border-radius: 6px;
+  opacity: 0.7;
+  transition: 0.35s ease;
+}
+
+.creditLogo:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(253, 181, 20, 0.5);
+}
+
+.creditLogo img {
+  height: 12px;
+  width: auto;
+  display: block;
+}
+
+.divider {
+  width: 1px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.light .divider {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+  .poweredBy {
+    padding: 6px 10px;
+    gap: 8px;
+  }
+
+  .creditLogo img {
+    height: 10px;
+  }
+}
+

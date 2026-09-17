@@ -1,11 +1,45 @@
-<div align="center">
+# Saving.Careers - SEO, AEO & GEO Challenge
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+Outcome-driven digital marketing learning challenge by Saving.Careers with Nikhil Sir.
 
-  <h1>Built with AI Studio</h2>
+## Quick Start & Local Development
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+```bash
+npm install
+npm run dev
+```
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+The app will be available at `http://localhost:3000`.
 
-</div>
+## Production Build
+
+```bash
+npm run build
+```
+
+This compiles optimized assets to the `/dist` directory.
+
+## Deploying to Vercel
+
+### Option 1: Via GitHub (Recommended)
+1. Create a new repository on [GitHub](https://github.com/new).
+2. Push this project:
+   ```bash
+   git remote add origin https://github.com/<YOUR-USERNAME>/<YOUR-REPO-NAME>.git
+   git branch -M main
+   git push -u origin main
+   ```
+3. Go to [Vercel Dashboard](https://vercel.com/new) -> **Import Git Repository**.
+4. Vercel will automatically detect **Vite** and configure the build settings using `vercel.json`:
+   - **Framework Preset**: Vite
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist`
+5. Click **Deploy**.
+
+### Option 2: Via Vercel CLI
+```bash
+npm i -g vercel
+vercel
+```
+Follow the on-screen prompts (accept default Vite settings).
+
