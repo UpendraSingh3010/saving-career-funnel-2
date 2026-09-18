@@ -23,7 +23,7 @@ export const MentorSection: React.FC<MentorSectionProps> = ({
 
         <div className="max-w-3xl mb-12">
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4">
-            Learn With <span className="text-[#00ff88]">Nikhil Sir</span>.
+            Learn With <span className={darkMode ? 'text-[#00ff88]' : 'text-[#008744]'}>Nikhil Sir</span>.
           </h2>
           <p className="text-[#8e8e93] text-base sm:text-lg leading-relaxed">
             Sustainable digital marketing skills come from understanding the underlying algorithmic mechanics,

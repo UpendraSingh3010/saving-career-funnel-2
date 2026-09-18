@@ -17,9 +17,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     >
       {/* Background radial accent glow */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-20"
+        className="absolute inset-0 pointer-events-none transition-opacity duration-500"
         style={{
-          backgroundImage: `radial-gradient(circle at 50% 15%, rgba(0, 255, 136, 0.18) 0%, transparent 60%)`,
+          backgroundImage: darkMode
+            ? `radial-gradient(circle at 50% 15%, rgba(0, 255, 136, 0.14) 0%, transparent 60%)`
+            : `radial-gradient(circle at 50% 15%, rgba(0, 204, 106, 0.08) 0%, transparent 60%)`,
         }}
       />
 

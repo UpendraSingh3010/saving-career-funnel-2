@@ -119,7 +119,7 @@ export default function App() {
   return (
     <div
       className={`min-h-screen flex flex-col relative selection:bg-[#00ff88] selection:text-black ${
-        darkMode ? 'bg-[#000000] text-[#ffffff]' : 'bg-[#f8fafc] text-[#0a0f1d]'
+        darkMode ? 'bg-[#000000] text-[#ffffff]' : 'bg-[#ffffff] text-[#000000]'
       }`}
     >
       {/* Authentic Saving.Careers Custom Cursor */}
