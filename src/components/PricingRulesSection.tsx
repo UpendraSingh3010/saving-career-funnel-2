@@ -1,5 +1,6 @@
-import React from 'react';
-import { CheckCircle2, Shield, ArrowRight, Check, AlertCircle } from 'lucide-react';
+import React, { useState } from 'react';
+import { CheckCircle2, Shield, ArrowRight, Check, AlertCircle, ChevronDown, ChevronUp } from 'lucide-react';
+import { RubricRadarChart } from './RubricRadarChart';
 
 interface PricingRulesSectionProps {
   darkMode: boolean;
@@ -10,48 +11,55 @@ export const PricingRulesSection: React.FC<PricingRulesSectionProps> = ({
   darkMode,
   onOpenRegister,
 }) => {
+  const [hoveredRule, setHoveredRule] = useState<string | null>(null);
+  const [showAllRules, setShowAllRules] = useState<boolean>(false);
+
   const rules = [
     {
       num: '01',
       title: 'Pre-Agreed Search Queries',
-      desc: 'Target queries must represent genuine discovery searches (non-branded), mutually finalized and approved during Week 2 orientation.',
+      short: 'Non-branded discovery queries approved during Week 2.',
+      desc: 'Target queries must represent genuine discovery searches (non-branded), mutually finalized and approved during Week 2 orientation with Nikhil Sir.',
     },
     {
       num: '02',
       title: 'Defined Rank Benchmark',
-      desc: 'Qualifies by achieving Page 1 (Top 10 Google organic position) OR an official citation inside Google AI Overviews.',
+      short: 'Google Page 1 (Top 10) OR Google AI Overview extraction.',
+      desc: 'Qualifies by achieving Page 1 (Top 10 Google organic position) OR an official citation inside Google AI Overviews or Perplexity.',
     },
     {
       num: '03',
       title: 'Google Search Console Proof',
+      short: 'Verified Search Console telemetry holding for >= 7 days.',
       desc: 'All rankings are verified directly via Search Console performance telemetry and live SERP audits, holding for at least 7 days.',
     },
     {
       num: '04',
       title: '100% White-Hat Standard',
+      short: 'Ethical optimization only; no PBNs or link spam.',
       desc: 'Only sustainable, ethical optimization methods allowed. Link spam, PBNs, or manipulative black-hat techniques disqualify the project.',
     },
   ];
 
   return (
-    <section id="section-pricing" className="py-20 sm:py-28 border-t border-[#222222]/40 relative">
+    <section id="section-pricing" className="py-20 sm:py-24 border-t border-[#222222]/40 relative">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Eyebrow & Section Header */}
-        <div className="flex items-center gap-2 mb-4">
+        <div className="flex items-center gap-2 mb-3">
           <span className="w-2 h-2 rounded-full bg-[#00ff88]"></span>
           <span className="font-mono-code text-xs text-[#8e8e93] tracking-widest uppercase">
             PRICING MODEL &amp; OFFICIAL RULES
           </span>
         </div>
 
-        <div className="max-w-3xl mb-12">
-          <h2 className="font-display text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">
+        <div className="max-w-3xl mb-8">
+          <h2 className="font-display text-2xl sm:text-4xl font-extrabold tracking-tight mb-2">
             Learn first. Prove results.{' '}
             <span className={darkMode ? 'text-[#00ff88]' : 'text-[#008744]'}>
               Course fee = ₹0.
             </span>
           </h2>
-          <p className="text-[#8e8e93] text-base sm:text-lg leading-relaxed">
+          <p className="text-[#8e8e93] text-sm sm:text-base leading-relaxed">
             We align incentives completely. Registration fee and course fee are separate. If your project ranks on Google or AI search, your course fee is completely waived.
           </p>
         </div>
@@ -183,32 +191,110 @@ export const PricingRulesSection: React.FC<PricingRulesSectionProps> = ({
           </div>
         </div>
 
-        {/* 4 Qualification Rules */}
+        {/* 5-Pillar Technical Audit Rubric (Radar Chart) */}
+        <div className="mb-12">
+          <RubricRadarChart darkMode={darkMode} />
+        </div>
+
+        {/* 4 Qualification Rules with Collapsible Boxes */}
         <div>
-          <div className="flex items-center gap-2 mb-4">
-            <Shield size={16} className="text-[#00ff88]" />
-            <h3 className="font-display font-bold text-lg">
-              Official Ranking Verification Rules
-            </h3>
+          <div className="flex items-center justify-between gap-4 mb-4">
+            <div className="flex items-center gap-2">
+              <Shield size={16} className="text-[#00ff88]" />
+              <h3 className="font-display font-bold text-base sm:text-lg">
+                Official Ranking Verification Rules
+              </h3>
+            </div>
+
+            <button
+              onClick={() => setShowAllRules(!showAllRules)}
+              className="font-mono-code text-xs text-[#8e8e93] hover:text-current underline cursor-pointer"
+            >
+              {showAllRules ? 'Collapse to Compact View' : 'Expand All 4 Rules'}
+            </button>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {rules.map((r) => (
-              <div
-                key={r.num}
-                className={`p-4 rounded-lg border text-xs ${
-                  darkMode ? 'bg-[#0a0a0a] border-[#1c1c1c]' : 'bg-white border-[#e2e8f0]'
-                }`}
-              >
-                <div className="font-mono-code text-[11px] text-[#00ff88] font-bold mb-1">
-                  RULE [{r.num}]
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            {rules.map((r) => {
+              const isOpen = showAllRules || hoveredRule === r.num;
+              return (
+                <div
+                  key={r.num}
+                  onMouseEnter={() => setHoveredRule(r.num)}
+                  onMouseLeave={() => setHoveredRule(null)}
+                  onClick={() => {
+                    if (!showAllRules) {
+                      setHoveredRule(hoveredRule === r.num ? null : r.num);
+                    }
+                  }}
+                  className={`p-4 rounded-xl border transition-all duration-200 cursor-pointer flex flex-col justify-between ${
+                    isOpen
+                      ? darkMode
+                        ? 'bg-[#121212] border-[#00ff88] shadow-[0_0_25px_rgba(0,255,136,0.18)] -translate-y-1'
+                        : 'bg-emerald-50/70 border-[#008744] shadow-md -translate-y-1'
+                      : darkMode
+                      ? 'bg-[#0a0a0a] border-[#1c1c1c] hover:border-[#333333]'
+                      : 'bg-white border-[#e2e8f0] hover:border-[#cbd5e1]'
+                  }`}
+                >
+                  <div>
+                    <div className="flex items-center justify-between gap-2 mb-2">
+                      <span
+                        className={`font-mono-code text-[11px] font-bold ${
+                          isOpen
+                            ? darkMode
+                              ? 'text-[#00ff88]'
+                              : 'text-[#008744]'
+                            : 'text-[#8e8e93]'
+                        }`}
+                      >
+                        RULE [{r.num}]
+                      </span>
+                      {!showAllRules && (
+                        <ChevronDown
+                          size={13}
+                          className={`transition-transform duration-200 ${
+                            isOpen
+                              ? `rotate-180 ${darkMode ? 'text-[#00ff88]' : 'text-[#008744]'}`
+                              : 'text-[#8e8e93]'
+                          }`}
+                        />
+                      )}
+                    </div>
+
+                    <div className="font-display font-bold text-xs sm:text-sm text-current mb-2 leading-snug">
+                      {r.title}
+                    </div>
+
+                    {isOpen ? (
+                      <p className="text-xs text-[#8e8e93] leading-relaxed font-mono-code animate-in fade-in duration-200">
+                        {r.desc}
+                      </p>
+                    ) : (
+                      <p className="text-[11px] text-[#8e8e93] leading-snug font-mono-code line-clamp-2">
+                        {r.short}
+                      </p>
+                    )}
+                  </div>
+
+                  {/* Micro indicator footer */}
+                  <div className="pt-3 mt-2 border-t border-inherit flex items-center justify-between text-[10px] font-mono-code">
+                    <span
+                      className={
+                        isOpen
+                          ? darkMode
+                            ? 'text-[#00ff88] font-bold'
+                            : 'text-[#008744] font-bold'
+                          : 'text-[#8e8e93]'
+                      }
+                    >
+                      {isOpen ? '● ACTIVE INSPECTION' : 'HOVER TO EXPAND'}
+                    </span>
+                    <span className="text-[#8e8e93]">AUDIT STAGE</span>
+                  </div>
                 </div>
-                <div className="font-display font-bold text-sm mb-1.5">{r.title}</div>
-                <p className="text-[#8e8e93] leading-relaxed font-mono-code text-[11px]">
-                  {r.desc}
-                </p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

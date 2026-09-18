@@ -9,13 +9,14 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ darkMode, onOpenRegister }) => {
   const quickLinks = [
-    { label: 'Overview', href: '#section-hero' },
-    { label: 'The Modern Triad', href: '#section-triad' },
-    { label: '4-Stage Roadmap', href: '#section-roadmap' },
-    { label: 'Pricing & Rules', href: '#section-pricing' },
-    { label: 'Nikhil Sir Mentorship', href: '#section-mentor' },
-    { label: 'Who It’s For', href: '#section-audience' },
-    { label: 'Contest FAQs', href: '#section-faq' },
+    { label: 'Challenge', href: '#section-hero' },
+    { label: 'Method', href: '#section-method' },
+    { label: 'Instructor', href: '#section-instructor' },
+    { label: 'Protocol', href: '#section-protocol' },
+    { label: 'Offer', href: '#section-offer' },
+    { label: 'Target', href: '#section-target' },
+    { label: 'Outcome', href: '#section-outcome' },
+    { label: 'Activate', href: '#section-activate' },
   ];
 
   const corePillars = [

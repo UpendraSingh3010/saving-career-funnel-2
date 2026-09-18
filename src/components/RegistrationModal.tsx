@@ -16,6 +16,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
+  const [currentStatus, setCurrentStatus] = useState('Student');
   const [projectIdea, setProjectIdea] = useState('');
   const [termsAccepted, setTermsAccepted] = useState(true);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -167,6 +168,29 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
                     }`}
                   />
                 </div>
+              </div>
+
+              <div>
+                <label className="block text-xs font-mono-code text-[#8e8e93] uppercase tracking-wider mb-1">
+                  Current Status
+                </label>
+                <select
+                  value={currentStatus}
+                  onChange={(e) => setCurrentStatus(e.target.value)}
+                  className={`w-full px-4 py-2.5 rounded-lg border text-sm font-sans focus:outline-none focus:border-[#00ff88] transition-colors cursor-pointer ${
+                    darkMode
+                      ? 'bg-[#121212] border-[#222222] text-white'
+                      : 'bg-[#f8fafc] border-[#cbd5e1] text-black'
+                  }`}
+                >
+                  {['Student', 'Beginner', 'Freelancer', 'Founder', 'Career Switcher'].map(
+                    (opt) => (
+                      <option key={opt} value={opt} className="text-black">
+                        {opt}
+                      </option>
+                    )
+                  )}
+                </select>
               </div>
 
               <div>

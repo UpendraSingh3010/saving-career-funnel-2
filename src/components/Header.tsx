@@ -25,41 +25,18 @@ export const Header: React.FC<HeaderProps> = ({
   }, []);
 
   const navItems = [
-    { label: 'The Challenge', href: '#section-hero' },
-    { label: 'SEO • AEO • GEO', href: '#section-triad' },
-    { label: '4-Stage Protocol', href: '#section-roadmap' },
-    { label: 'Rules & ₹0 Fee', href: '#section-pricing' },
-    { label: 'Mentor', href: '#section-mentor' },
-    { label: 'FAQs', href: '#section-faq' },
+    { label: 'Challenge', href: '#section-hero' },
+    { label: 'Method', href: '#section-method' },
+    { label: 'Instructor', href: '#section-instructor' },
+    { label: 'Protocol', href: '#section-protocol' },
+    { label: 'Offer', href: '#section-offer' },
+    { label: 'Target', href: '#section-target' },
+    { label: 'Outcome', href: '#section-outcome' },
+    { label: 'Activate', href: '#section-activate' },
   ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-      {/* Authentic Saving.Careers Command Ribbon */}
-      <div
-        className={`w-full py-1.5 px-4 sm:px-6 lg:px-8 border-b text-[10.5px] font-mono-code transition-colors ${
-          darkMode
-            ? 'bg-[#000000] border-[#1a1a1a] text-[#8e8e93]'
-            : 'bg-[#f1f5f9] border-[#cbd5e1] text-[#475569]'
-        }`}
-      >
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[#00ff88] animate-pulse"></span>
-            <span className="font-bold text-current">SAVING.CAREERS PROTOCOL</span>
-            <span className="hidden sm:inline text-[#666666]">|</span>
-            <span className="hidden sm:inline">LIVE BATCH NOW ACTIVE</span>
-          </div>
-          <div className="flex items-center gap-3">
-            <span className="hidden md:inline text-current font-semibold">TARGET: RANK LIVE WEB ASSET</span>
-            <span className="hidden md:inline text-[#666666]">•</span>
-            <span className={darkMode ? 'text-[#00ff88] font-bold' : 'text-[#008744] font-bold'}>
-              RANK = COURSE FEE ₹0
-            </span>
-          </div>
-        </div>
-      </div>
-
       {/* Main Navigation Bar */}
       <div
         className={`border-b transition-all duration-300 ${

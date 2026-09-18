@@ -5,13 +5,14 @@
 
 import React, { useState, useEffect } from 'react';
 import { Header } from './components/Header';
-import { HeroSection } from './components/HeroSection';
-import { TriadSection } from './components/TriadSection';
-import { RoadmapSection } from './components/RoadmapSection';
-import { PricingRulesSection } from './components/PricingRulesSection';
-import { MentorSection } from './components/MentorSection';
-import { AudienceSection } from './components/AudienceSection';
-import { FaqCtaSection } from './components/FaqCtaSection';
+import { Section1Hero } from './components/Section1Hero';
+import { Section2Method } from './components/Section2Method';
+import { Section3Instructor } from './components/Section3Instructor';
+import { Section4Protocol } from './components/Section4Protocol';
+import { Section5Offer } from './components/Section5Offer';
+import { Section6Target } from './components/Section6Target';
+import { Section7Outcome } from './components/Section7Outcome';
+import { Section8Activate } from './components/Section8Activate';
 import { Footer } from './components/Footer';
 import { RegistrationModal } from './components/RegistrationModal';
 import { CustomCursor } from './components/CustomCursor';
@@ -22,7 +23,7 @@ export default function App() {
   // Default to dark mode (Saving.Careers standard aesthetic)
   const [darkMode, setDarkMode] = useState<boolean>(true);
   const [isRegisterOpen, setIsRegisterOpen] = useState<boolean>(false);
-  const [currentSection, setCurrentSection] = useState<string>('Overview');
+  const [currentSection, setCurrentSection] = useState<string>('Challenge');
 
   useEffect(() => {
     if (darkMode) {
@@ -87,13 +88,14 @@ export default function App() {
   // Track active section for floating progress indicator
   useEffect(() => {
     const sections = [
-      { id: 'section-hero', name: 'Overview' },
-      { id: 'section-triad', name: 'The Triad' },
-      { id: 'section-roadmap', name: 'Roadmap' },
-      { id: 'section-pricing', name: 'Pricing & Rules' },
-      { id: 'section-mentor', name: 'Mentor' },
-      { id: 'section-audience', name: 'Who It’s For' },
-      { id: 'section-faq', name: 'FAQs' },
+      { id: 'section-hero', name: 'Challenge' },
+      { id: 'section-method', name: 'Method' },
+      { id: 'section-instructor', name: 'Instructor' },
+      { id: 'section-protocol', name: 'Protocol' },
+      { id: 'section-offer', name: 'Offer' },
+      { id: 'section-target', name: 'Target' },
+      { id: 'section-outcome', name: 'Outcome' },
+      { id: 'section-activate', name: 'Activate' },
     ];
 
     const observer = new IntersectionObserver(
@@ -135,49 +137,34 @@ export default function App() {
         onOpenRegister={() => setIsRegisterOpen(true)}
       />
 
-      {/* Main 7-Section Funnel Content */}
+      {/* Main 8-Section Funnel Content */}
       <main className="flex-1 relative z-10">
-        {/* Section 01: Hero & Core Proposition */}
-        <HeroSection
+        {/* Section 01: Hero — Learn it. Apply it. Rank it. */}
+        <Section1Hero
           darkMode={darkMode}
           onOpenRegister={() => setIsRegisterOpen(true)}
         />
 
-        {/* Section 02: Modern Organic Search Triad (SEO, AEO & GEO) */}
-        <TriadSection
-          darkMode={darkMode}
-          onOpenRegister={() => setIsRegisterOpen(true)}
-        />
+        {/* Section 02: Method — One skill won't get you found anymore. */}
+        <Section2Method darkMode={darkMode} />
 
-        {/* Section 03: The 4-Stage Challenge Roadmap (LEARN → BUILD → OPTIMIZE → RANK) */}
-        <RoadmapSection
-          darkMode={darkMode}
-          onOpenRegister={() => setIsRegisterOpen(true)}
-        />
+        {/* Section 03: Instructor — Meet Nikhil Sir. */}
+        <Section3Instructor darkMode={darkMode} />
 
-        {/* Section 04: Proof-First Pricing Model & Ranking Rules */}
-        <PricingRulesSection
-          darkMode={darkMode}
-          onOpenRegister={() => setIsRegisterOpen(true)}
-        />
+        {/* Section 04: Protocol — Five steps. One outcome. */}
+        <Section4Protocol darkMode={darkMode} />
 
-        {/* Section 05: Meet Your Mentor — Nikhil Sir (Nikhil Sharma) */}
-        <MentorSection
-          darkMode={darkMode}
-          onOpenRegister={() => setIsRegisterOpen(true)}
-        />
+        {/* Section 05: Offer — What if you didn't pay unless it worked? */}
+        <Section5Offer darkMode={darkMode} />
 
-        {/* Section 06: Who Is This For? & The Proof Difference */}
-        <AudienceSection
-          darkMode={darkMode}
-          onOpenRegister={() => setIsRegisterOpen(true)}
-        />
+        {/* Section 06: Target — Tap what describes you. */}
+        <Section6Target darkMode={darkMode} />
 
-        {/* Section 07: Clear FAQs & Final Registration Gate */}
-        <FaqCtaSection
-          darkMode={darkMode}
-          onOpenRegister={() => setIsRegisterOpen(true)}
-        />
+        {/* Section 07: Outcome — "I learned SEO." vs. "I ranked a project." */}
+        <Section7Outcome darkMode={darkMode} />
+
+        {/* Section 08: Activate — Ready to stop learning and start proving it? */}
+        <Section8Activate darkMode={darkMode} />
       </main>
 
       {/* Comprehensive Brand Footer & Site Credits */}

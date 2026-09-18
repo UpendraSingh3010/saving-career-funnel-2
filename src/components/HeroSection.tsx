@@ -1,5 +1,6 @@
-import React from 'react';
-import { ArrowRight, Terminal, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import React, { useState } from 'react';
+import { ArrowRight, Terminal, ShieldCheck, CheckCircle2, ChevronDown, ChevronUp } from 'lucide-react';
+import { HeroRankSimulator } from './HeroRankSimulator';
 
 interface HeroSectionProps {
   onOpenRegister: () => void;
@@ -10,6 +11,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   onOpenRegister,
   darkMode,
 }) => {
+  const [showFullSpecs, setShowFullSpecs] = useState(false);
+
   return (
     <section
       id="section-hero"
@@ -28,53 +31,42 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Eyebrow Protocol Tag (Authentic Saving.Careers Style) */}
         <div className="flex items-center gap-2 mb-6">
-          <span className="w-2 h-2 rounded-full bg-[#00ff88] animate-pulse"></span>
-          <span className="font-mono-code text-[11px] sm:text-xs text-[#8e8e93] tracking-widest uppercase">
-            CHALLENGE PROTOCOL // SAVING.CAREERS WITH NIKHIL SIR
+          <span className="inline-block w-2 h-2 rounded-full bg-[#00ff88] animate-pulse"></span>
+          <span className="font-mono-code text-xs text-[#8e8e93] tracking-widest uppercase">
+            SAVING.CAREERS // 2026 SEARCH &amp; AI CONTEST
           </span>
         </div>
 
-        {/* Main Headline */}
-        <div className="max-w-4xl mb-6">
-          <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.06]">
-            Don’t just study SEO.{' '}
+        {/* Main Hero Typography */}
+        <div className="max-w-4xl mb-12">
+          <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.08] mb-6">
+            Rank Your Live Website.{' '}
             <span
-              className={`block ${
-                darkMode ? 'text-[#00ff88]' : 'text-[#008744]'
-              }`}
+              className={
+                darkMode
+                  ? 'text-[#00ff88]'
+                  : 'text-[#008744]'
+              }
             >
-              Make your project rank.
-            </span>
-            <span className="block text-2xl sm:text-4xl lg:text-5xl font-bold opacity-90 mt-2">
-              If it ranks, your course fee is ₹0.
+              Course Fee = ₹0.
             </span>
           </h1>
+
+          <p className="text-base sm:text-xl text-[#8e8e93] leading-relaxed max-w-2xl font-sans">
+            A real-world execution challenge. Build an active domain, optimize for Google Search, AI Overviews, and LLM citations. If you rank on agreed benchmarks, your course fee is 100% waived.
+          </p>
         </div>
 
-        {/* Precise, scannable subhead */}
-        <p className="text-base sm:text-lg text-[#8e8e93] max-w-2xl leading-relaxed mb-10">
-          Stop collecting passive certificates. Master modern <strong className="text-current font-semibold">SEO (Google)</strong>,{' '}
-          <strong className="text-current font-semibold">AEO (AI Overviews)</strong>, and{' '}
-          <strong className="text-current font-semibold">GEO (ChatGPT &amp; Perplexity citations)</strong> on your own live website.
-          Reach verified organic ranking, and pay ₹0 course fee.
-        </p>
-
-        {/* Authentic Saving.Careers System Protocol Terminal Card */}
+        {/* Terminal Style Value Card */}
         <div
-          className={`rounded-xl border transition-all overflow-hidden mb-12 ${
+          className={`tilt-card rounded-2xl border p-6 sm:p-8 font-mono-code text-xs relative overflow-hidden transition-all mb-14 ${
             darkMode
-              ? 'bg-[#0a0a0a] border-[#1e1e1e] shadow-[0_15px_40px_rgba(0,0,0,0.8)]'
-              : 'bg-white border-[#e2e8f0] shadow-[0_10px_30px_rgba(0,0,0,0.05)]'
+              ? 'bg-[#0a0a0a] border-[#1e1e1e] shadow-[0_20px_50px_rgba(0,0,0,0.8)]'
+              : 'bg-white border-[#e2e8f0] shadow-xl'
           }`}
         >
-          {/* Terminal Titlebar */}
-          <div
-            className={`px-4 sm:px-6 py-3 border-b flex items-center justify-between text-xs font-mono-code ${
-              darkMode
-                ? 'bg-[#0f0f0f] border-[#1e1e1e] text-[#8e8e93]'
-                : 'bg-[#f8fafc] border-[#e2e8f0] text-[#64748b]'
-            }`}
-          >
+          {/* Terminal Window Chrome */}
+          <div className="flex items-center justify-between pb-4 mb-6 border-b border-inherit text-[#8e8e93]">
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-[#ff3366]"></span>
               <span className="w-2.5 h-2.5 rounded-full bg-[#f59e0b]"></span>
@@ -90,9 +82,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </div>
 
           {/* Terminal Body Content */}
-          <div className="p-5 sm:p-8">
+          <div>
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
-              {/* Left Column: Key Parameters */}
+              {/* Left Column: Compressed Parameters with Collapsible Details */}
               <div className="lg:col-span-7 space-y-3 font-mono-code text-xs sm:text-sm">
                 <div className="flex items-start gap-2 text-[#8e8e93]">
                   <span className="text-[#00ff88] font-bold">&gt;</span>
@@ -100,25 +92,41 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 </div>
                 <div className="flex items-start gap-2 text-[#8e8e93]">
                   <span className="text-[#00ff88] font-bold">&gt;</span>
-                  <span><strong className="text-current">CURRICULUM</strong>: SEO (Google SERP) + AEO (Direct Answers) + GEO (LLM Citations)</span>
-                </div>
-                <div className="flex items-start gap-2 text-[#8e8e93]">
-                  <span className="text-[#00ff88] font-bold">&gt;</span>
-                  <span><strong className="text-current">MENTOR</strong>: Nikhil Sharma (Founder, 20+ yrs growth strategist)</span>
-                </div>
-                <div className="flex items-start gap-2 text-[#8e8e93]">
-                  <span className="text-[#00ff88] font-bold">&gt;</span>
-                  <span><strong className="text-current">SEAT LOCK</strong>: ₹999 entry registration today</span>
-                </div>
-                <div className="flex items-start gap-2 text-[#8e8e93]">
-                  <span className="text-[#00ff88] font-bold">&gt;</span>
-                  <span><strong className="text-current">UPFRONT FEE</strong>: ₹0 (Zero course fee required upfront)</span>
+                  <span><strong className="text-current">SEAT LOCK</strong>: ₹999 entry registration (Zero course fee upfront)</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <span className="text-[#00ff88] font-bold">&gt;</span>
                   <span className={darkMode ? 'text-[#00ff88] font-bold' : 'text-[#008744] font-bold'}>
                     SUCCESS OUTCOME: If project ranks on agreed criteria → COURSE FEE = ₹0
                   </span>
+                </div>
+
+                {/* Collapsible Specs Toggle */}
+                <div className="pt-2">
+                  <button
+                    onClick={() => setShowFullSpecs(!showFullSpecs)}
+                    className="flex items-center gap-1.5 text-xs text-[#8e8e93] hover:text-current font-mono-code transition-colors cursor-pointer"
+                  >
+                    <span>{showFullSpecs ? 'Collapse Specifications' : '+ View Full Directive Manifest (Curriculum, Mentor, Rules)'}</span>
+                    {showFullSpecs ? <ChevronUp size={13} /> : <ChevronDown size={13} />}
+                  </button>
+
+                  {showFullSpecs && (
+                    <div className="mt-3 pt-3 border-t border-inherit space-y-2 text-xs text-[#8e8e93] animate-in fade-in duration-150">
+                      <div className="flex items-start gap-2">
+                        <span className="text-[#38bdf8] font-bold">•</span>
+                        <span><strong className="text-current">Curriculum Triad:</strong> SEO (Google SERP) + AEO (Direct Answers) + GEO (LLM Citations)</span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <span className="text-[#38bdf8] font-bold">•</span>
+                        <span><strong className="text-current">Lead Mentor:</strong> Nikhil Sharma (Founder, 20+ yrs scaled search strategist)</span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <span className="text-[#38bdf8] font-bold">•</span>
+                        <span><strong className="text-current">Asset Rights:</strong> You retain 100% permanent ownership of your domain &amp; rankings</span>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -177,34 +185,49 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </div>
         </div>
 
+        {/* Live Search Surface Simulator (Interactive Rank Previewer) */}
+        <div className="mb-14">
+          <HeroRankSimulator darkMode={darkMode} onOpenRegister={onOpenRegister} />
+        </div>
+
         {/* Clean 3-Metric Strip (Direct Reference to saving.careers Hero Footer) */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2 border-t border-[#222222]/40">
           <div className="py-2">
             <div
-              className={`font-mono-code text-3xl font-extrabold ${
+              className={`font-mono-code text-xl sm:text-2xl font-bold ${
+                darkMode ? 'text-white' : 'text-slate-900'
+              }`}
+            >
+              SEO + AEO + GEO
+            </div>
+            <div className="text-xs text-[#8e8e93] font-mono-code uppercase mt-0.5">
+              Triple-Surface Optimization
+            </div>
+          </div>
+
+          <div className="py-2">
+            <div
+              className={`font-mono-code text-xl sm:text-2xl font-bold ${
                 darkMode ? 'text-[#00ff88]' : 'text-[#008744]'
               }`}
             >
-              ₹0
+              ₹0 Course Fee
             </div>
-            <div className="text-xs font-mono-code text-[#8e8e93] mt-1">
-              Course Fee if your project ranks
-            </div>
-          </div>
-          <div className="py-2">
-            <div className="font-mono-code text-3xl font-extrabold text-current">
-              3-in-1 Stack
-            </div>
-            <div className="text-xs font-mono-code text-[#8e8e93] mt-1">
-              SEO (Google) + AEO (Answers) + GEO (AI Citations)
+            <div className="text-xs text-[#8e8e93] font-mono-code uppercase mt-0.5">
+              Performance-Linked Incentive
             </div>
           </div>
+
           <div className="py-2">
-            <div className="font-mono-code text-3xl font-extrabold text-current">
-              100% Real
+            <div
+              className={`font-mono-code text-xl sm:text-2xl font-bold ${
+                darkMode ? 'text-white' : 'text-slate-900'
+              }`}
+            >
+              100% Live Domain
             </div>
-            <div className="text-xs font-mono-code text-[#8e8e93] mt-1">
-              Live indexable website &amp; Google Search Console proof
+            <div className="text-xs text-[#8e8e93] font-mono-code uppercase mt-0.5">
+              Verified GSC &amp; AI Telemetry
             </div>
           </div>
         </div>
