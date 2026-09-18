@@ -16,7 +16,7 @@ export const Footer: React.FC<FooterProps> = ({ darkMode, onOpenRegister }) => {
     { label: 'Offer', href: '#section-offer' },
     { label: 'Target', href: '#section-target' },
     { label: 'Outcome', href: '#section-outcome' },
-    { label: 'Activate', href: '#section-activate' },
+    { label: 'FAQ', href: '#section-faq' },
   ];
 
   const corePillars = [

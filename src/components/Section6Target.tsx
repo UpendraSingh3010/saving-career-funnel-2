@@ -1,21 +1,68 @@
 import React, { useState } from 'react';
-import { Compass, Briefcase, Check, Sparkles, ArrowRight, UserCheck } from 'lucide-react';
+import {
+  GraduationCap,
+  Compass,
+  TrendingUp,
+  PenTool,
+  Briefcase,
+  Rocket,
+  CheckCircle2,
+} from 'lucide-react';
 
 interface Section6TargetProps {
   darkMode: boolean;
 }
 
 export const Section6Target: React.FC<Section6TargetProps> = ({ darkMode }) => {
-  const [selectedPersona, setSelectedPersona] = useState<'track-a' | 'track-b'>('track-a');
+  const [selectedId, setSelectedId] = useState<string>('students');
+
+  const targets = [
+    {
+      id: 'students',
+      icon: GraduationCap,
+      label: 'Students',
+      desc: 'Who want practical exposure instead of another certificate-only course.',
+    },
+    {
+      id: 'beginners',
+      icon: Compass,
+      label: 'Digital Marketing Beginners',
+      desc: 'Who want to understand modern organic search from the ground up.',
+    },
+    {
+      id: 'learners',
+      icon: TrendingUp,
+      label: 'SEO Learners',
+      desc: 'Who already know the basics but want to test their ability on a real project.',
+    },
+    {
+      id: 'writers',
+      icon: PenTool,
+      label: 'Content Writers',
+      desc: 'Who want to understand how content connects with SEO, answer engines and AI-driven discovery.',
+    },
+    {
+      id: 'freelancers',
+      icon: Briefcase,
+      label: 'Freelancers',
+      desc: 'Who want stronger practical SEO knowledge they can apply to client or personal projects.',
+    },
+    {
+      id: 'founders',
+      icon: Rocket,
+      label: 'Founders & Creators',
+      desc: 'Who want to improve the organic visibility of their own website, business or content platform.',
+    },
+  ];
 
   return (
     <section
       id="section-target"
-      className="py-24 sm:py-32 border-b border-inherit relative overflow-hidden"
+      className="py-20 sm:py-28 border-b border-inherit relative overflow-hidden"
     >
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Eyebrow & Headline */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        {/* Eyebrow & Title */}
+        <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-inherit mb-4 text-xs font-mono-code bg-inherit">
             <span className="w-2 h-2 rounded-full bg-[#38bdf8]"></span>
             <span className="text-[#8e8e93] font-semibold tracking-wider uppercase">
@@ -24,137 +71,71 @@ export const Section6Target: React.FC<Section6TargetProps> = ({ darkMode }) => {
           </div>
 
           <h2 className="font-display text-3xl sm:text-5xl font-black tracking-tight mb-3">
-            Built for two kinds of people.
+            Who Is This For?
           </h2>
           <p className="text-base sm:text-lg text-[#8e8e93] font-sans">
-            Those just starting, and those already working.
+            Built for learners who want to build demonstrable capability on a live project.
           </p>
         </div>
 
-        {/* Varied Asymmetric Two-Column Composition */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-10">
-          {/* Profile 01: Just Starting Out */}
-          <div
-            onClick={() => setSelectedPersona('track-a')}
-            className={`p-8 sm:p-10 rounded-3xl border flex flex-col justify-between transition-all cursor-pointer ${
-              selectedPersona === 'track-a'
-                ? darkMode
-                  ? 'bg-[#0a0a0a] border-[#00ff88] shadow-[0_0_35px_rgba(0,255,136,0.15)] ring-1 ring-[#00ff88]'
-                  : 'bg-white border-[#008744] shadow-lg ring-1 ring-[#008744]'
-                : darkMode
-                ? 'bg-[#0a0a0a]/50 border-[#1f1f1f] opacity-80 hover:opacity-100'
-                : 'bg-white/60 border-slate-200 opacity-80 hover:opacity-100'
-            }`}
-          >
-            <div>
-              <div className="flex items-center justify-between mb-6">
-                <span className="font-mono-code text-xs uppercase tracking-wider px-3 py-1 rounded-lg bg-[#00ff88]/10 text-[#00ff88] font-bold">
-                  Track A · Just Starting
-                </span>
-                <Compass size={22} className="text-[#00ff88]" />
-              </div>
+        {/* Clean, Non-Cluttered Bento Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+          {targets.map((item) => {
+            const IconComponent = item.icon;
+            const isSelected = selectedId === item.id;
 
-              <h3 className="font-display text-2xl sm:text-3xl font-black mb-3">
-                Students &amp; Beginners
-              </h3>
+            return (
+              <button
+                key={item.id}
+                onClick={() => setSelectedId(item.id)}
+                className={`p-5 rounded-2xl border text-left transition-all cursor-pointer flex flex-col justify-between ${
+                  isSelected
+                    ? darkMode
+                      ? 'bg-[#141414] border-[#00ff88] text-white shadow-lg ring-1 ring-[#00ff88]/30'
+                      : 'bg-emerald-50 border-[#008744] text-slate-900 shadow-sm ring-1 ring-[#008744]/30'
+                    : darkMode
+                    ? 'bg-[#0a0a0a] border-[#1e1e1e] text-[#8e8e93] hover:border-[#333]'
+                    : 'bg-white border-slate-200 text-slate-600 hover:border-slate-300'
+                }`}
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-3">
+                    <div
+                      className={`p-2 rounded-xl border ${
+                        isSelected
+                          ? darkMode
+                            ? 'bg-[#00ff88]/20 border-[#00ff88]/40 text-[#00ff88]'
+                            : 'bg-emerald-100 border-emerald-300 text-[#008744]'
+                          : 'bg-inherit border-inherit text-[#8e8e93]'
+                      }`}
+                    >
+                      <IconComponent size={18} />
+                    </div>
+                    {isSelected && (
+                      <CheckCircle2 size={16} className="text-[#00ff88]" />
+                    )}
+                  </div>
 
-              <p className="text-sm sm:text-base font-sans text-[#8e8e93] leading-relaxed mb-6">
-                Those who want practical proof over another certificate-only course. Start from the ground up on a real, live project — learning modern search mechanics through actual deployment.
-              </p>
-            </div>
+                  <h3 className="font-display text-base font-bold mb-1 text-current">
+                    {item.label}
+                  </h3>
 
-            <div>
-              <div className="pt-4 border-t border-inherit flex flex-wrap gap-2">
-                <span
-                  className={`px-3 py-1 rounded-lg text-xs font-mono-code border ${
-                    darkMode
-                      ? 'bg-[#121212] border-[#222222] text-[#00ff88]'
-                      : 'bg-slate-50 border-slate-200 text-[#008744]'
-                  }`}
-                >
-                  Student
-                </span>
-                <span
-                  className={`px-3 py-1 rounded-lg text-xs font-mono-code border ${
-                    darkMode
-                      ? 'bg-[#121212] border-[#222222] text-[#00ff88]'
-                      : 'bg-slate-50 border-slate-200 text-[#008744]'
-                  }`}
-                >
-                  Beginner
-                </span>
-              </div>
-              <p className="text-[11px] font-mono-code text-[#8e8e93] mt-3">
-                Replaces passive coursework with a verifiable live production URL
-              </p>
-            </div>
-          </div>
+                  <p className="text-xs font-sans text-[#8e8e93] leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
+              </button>
+            );
+          })}
+        </div>
 
-          {/* Profile 02: Already Working */}
-          <div
-            onClick={() => setSelectedPersona('track-b')}
-            className={`p-8 sm:p-10 rounded-3xl border flex flex-col justify-between transition-all cursor-pointer ${
-              selectedPersona === 'track-b'
-                ? darkMode
-                  ? 'bg-[#0a0a0a] border-[#38bdf8] shadow-[0_0_35px_rgba(56,189,248,0.15)] ring-1 ring-[#38bdf8]'
-                  : 'bg-white border-[#0284c7] shadow-lg ring-1 ring-[#0284c7]'
-                : darkMode
-                ? 'bg-[#0a0a0a]/50 border-[#1f1f1f] opacity-80 hover:opacity-100'
-                : 'bg-white/60 border-slate-200 opacity-80 hover:opacity-100'
-            }`}
-          >
-            <div>
-              <div className="flex items-center justify-between mb-6">
-                <span className="font-mono-code text-xs uppercase tracking-wider px-3 py-1 rounded-lg bg-[#38bdf8]/10 text-[#38bdf8] font-bold">
-                  Track B · Already Working
-                </span>
-                <Briefcase size={22} className="text-[#38bdf8]" />
-              </div>
-
-              <h3 className="font-display text-2xl sm:text-3xl font-black mb-3">
-                Freelancers, Founders &amp; Switchers
-              </h3>
-
-              <p className="text-sm sm:text-base font-sans text-[#8e8e93] leading-relaxed mb-6">
-                Those who want to apply search and AI visibility directly to client engagements or rank their own venture immediately. No conceptual drift; immediate commercial leverage.
-              </p>
-            </div>
-
-            <div>
-              <div className="pt-4 border-t border-inherit flex flex-wrap gap-2">
-                <span
-                  className={`px-3 py-1 rounded-lg text-xs font-mono-code border ${
-                    darkMode
-                      ? 'bg-[#121212] border-[#222222] text-[#38bdf8]'
-                      : 'bg-slate-50 border-slate-200 text-[#0284c7]'
-                  }`}
-                >
-                  Freelancer
-                </span>
-                <span
-                  className={`px-3 py-1 rounded-lg text-xs font-mono-code border ${
-                    darkMode
-                      ? 'bg-[#121212] border-[#222222] text-[#38bdf8]'
-                      : 'bg-slate-50 border-slate-200 text-[#0284c7]'
-                  }`}
-                >
-                  Founder
-                </span>
-                <span
-                  className={`px-3 py-1 rounded-lg text-xs font-mono-code border ${
-                    darkMode
-                      ? 'bg-[#121212] border-[#222222] text-[#38bdf8]'
-                      : 'bg-slate-50 border-slate-200 text-[#0284c7]'
-                  }`}
-                >
-                  Career Switcher
-                </span>
-              </div>
-              <p className="text-[11px] font-mono-code text-[#8e8e93] mt-3">
-                Direct client deliverables &amp; organic pipeline generation
-              </p>
-            </div>
-          </div>
+        {/* Bottom Reality Note */}
+        <div
+          className={`p-4 rounded-xl border text-center font-mono-code text-xs ${
+            darkMode ? 'bg-[#0d0d0d] border-[#222] text-[#8e8e93]' : 'bg-slate-50 border-slate-200 text-slate-600'
+          }`}
+        >
+          <span className="text-current font-bold">The Unifying Commonality:</span> Every participant works on a project that can actually compete online.
         </div>
       </div>
     </section>

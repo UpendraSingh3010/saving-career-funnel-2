@@ -32,7 +32,7 @@ export const Header: React.FC<HeaderProps> = ({
     { label: 'Offer', href: '#section-offer' },
     { label: 'Target', href: '#section-target' },
     { label: 'Outcome', href: '#section-outcome' },
-    { label: 'Activate', href: '#section-activate' },
+    { label: 'FAQ', href: '#section-faq' },
   ];
 
   return (

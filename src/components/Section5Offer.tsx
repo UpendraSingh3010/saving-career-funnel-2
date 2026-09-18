@@ -1,23 +1,19 @@
-import React, { useState } from 'react';
-import { CheckCircle2, Clock, Calculator, ShieldCheck, ArrowRight } from 'lucide-react';
+import React from 'react';
+import { CheckCircle2, Clock, ShieldCheck, ArrowRight, X } from 'lucide-react';
 
 interface Section5OfferProps {
   darkMode: boolean;
 }
 
-type BranchKey = 'rank' | 'no-rank';
-
 export const Section5Offer: React.FC<Section5OfferProps> = ({ darkMode }) => {
-  const [activeBranch, setActiveBranch] = useState<BranchKey>('rank');
-
   return (
     <section
       id="section-offer"
-      className="py-24 sm:py-32 border-b border-inherit relative overflow-hidden"
+      className="py-20 sm:py-28 border-b border-inherit relative overflow-hidden"
     >
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Eyebrow & Headline */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        {/* Eyebrow & Title */}
+        <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-inherit mb-4 text-xs font-mono-code bg-inherit">
             <span className="w-2 h-2 rounded-full bg-[#f59e0b]"></span>
             <span className="text-[#8e8e93] font-semibold tracking-wider uppercase">
@@ -26,184 +22,176 @@ export const Section5Offer: React.FC<Section5OfferProps> = ({ darkMode }) => {
           </div>
 
           <h2 className="font-display text-3xl sm:text-5xl font-black tracking-tight mb-3">
-            What if you didn't pay unless it worked?
+            Learn First. Prove It. Pay Later.
           </h2>
           <p className="text-base sm:text-lg text-[#8e8e93] font-sans">
-            The post-registration branching path and fee mechanics.
+            Your learning should be demonstrated through execution, not just course completion.
           </p>
         </div>
 
-        {/* Interactive Dynamic Simulation Container */}
-        <div className="max-w-4xl mx-auto mb-12">
-          {/* Interactive Mode Switcher */}
-          <div className="flex items-center justify-center gap-3 mb-8 font-mono-code text-xs">
-            <button
-              onClick={() => setActiveBranch('rank')}
-              className={`px-5 py-2.5 rounded-xl border flex items-center gap-2 transition-all cursor-pointer ${
-                activeBranch === 'rank'
-                  ? darkMode
-                    ? 'bg-[#00ff88]/15 border-[#00ff88] text-[#00ff88] font-bold shadow-lg ring-1 ring-[#00ff88]/30'
-                    : 'bg-emerald-50 border-[#008744] text-[#008744] font-bold shadow-sm ring-1 ring-[#008744]/30'
-                  : 'border-inherit text-[#8e8e93] hover:text-current'
-              }`}
-            >
-              <CheckCircle2 size={15} />
-              <span>Simulate: Project Ranks</span>
-            </button>
-
-            <button
-              onClick={() => setActiveBranch('no-rank')}
-              className={`px-5 py-2.5 rounded-xl border flex items-center gap-2 transition-all cursor-pointer ${
-                activeBranch === 'no-rank'
-                  ? darkMode
-                    ? 'bg-[#38bdf8]/15 border-[#38bdf8] text-[#38bdf8] font-bold shadow-lg ring-1 ring-[#38bdf8]/30'
-                    : 'bg-sky-50 border-[#0284c7] text-[#0284c7] font-bold shadow-sm ring-1 ring-[#0284c7]/30'
-                  : 'border-inherit text-[#8e8e93] hover:text-current'
-              }`}
-            >
-              <Clock size={15} />
-              <span>Simulate: Still Optimizing</span>
-            </button>
-          </div>
-
-          {/* Dynamic Invoice & Branching Card */}
+        {/* High-Contrast Comparison Flow Diagram */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+          {/* Box 1: Traditional Course */}
           <div
-            className={`p-8 sm:p-10 rounded-3xl border transition-all duration-300 shadow-2xl relative overflow-hidden ${
-              darkMode
-                ? 'bg-[#0a0a0a] border-[#1e1e1e]'
-                : 'bg-white border-slate-200'
+            className={`p-6 sm:p-8 rounded-3xl border flex flex-col justify-between ${
+              darkMode ? 'bg-[#0a0a0a]/60 border-[#1c1c1c]' : 'bg-slate-50/80 border-slate-200'
             }`}
           >
-            {/* Top status indicator */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-8 border-b border-inherit">
-              <div>
-                <span
-                  className={`font-mono-code text-xs uppercase tracking-wider px-3 py-1 rounded-lg font-bold ${
-                    activeBranch === 'rank'
-                      ? 'bg-[#00ff88]/15 text-[#00ff88]'
-                      : 'bg-[#38bdf8]/15 text-[#38bdf8]'
-                  }`}
-                >
-                  {activeBranch === 'rank'
-                    ? 'Branch · Criteria Met'
-                    : 'Branch · Extended Runway'}
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <span className="font-mono-code text-xs uppercase tracking-wider text-[#8e8e93] font-bold">
+                  Traditional Course
                 </span>
-                <h3 className="font-display text-3xl sm:text-4xl font-black mt-2">
-                  {activeBranch === 'rank'
-                    ? 'Course Tuition Fee: ₹0'
-                    : 'Pay Later, Within 6 Months'}
-                </h3>
+                <span className="text-xs font-mono-code px-2 py-0.5 rounded bg-red-500/10 text-red-400">
+                  Upfront Risk
+                </span>
               </div>
 
-              <div className="font-mono-code text-xs text-[#8e8e93] text-left sm:text-right">
-                <span className="block text-current font-bold">
-                  Registration: ₹999 Paid
-                </span>
-                <span>(Always separate from course fee)</span>
+              {/* Step Diagram */}
+              <div className="space-y-3 font-mono-code text-xs mb-6">
+                <div className="p-3 rounded-xl border border-inherit flex items-center gap-2 text-[#8e8e93]">
+                  <span className="w-5 h-5 rounded-full bg-inherit border border-inherit flex items-center justify-center font-bold text-[10px]">
+                    1
+                  </span>
+                  <span>Pay complete fee upfront</span>
+                </div>
+                <div className="p-3 rounded-xl border border-inherit flex items-center gap-2 text-[#8e8e93]">
+                  <span className="w-5 h-5 rounded-full bg-inherit border border-inherit flex items-center justify-center font-bold text-[10px]">
+                    2
+                  </span>
+                  <span>Watch recorded lessons</span>
+                </div>
+                <div className="p-3 rounded-xl border border-inherit flex items-center gap-2 text-[#8e8e93]">
+                  <span className="w-5 h-5 rounded-full bg-inherit border border-inherit flex items-center justify-center font-bold text-[10px]">
+                    3
+                  </span>
+                  <span>Complete course &amp; hope you can apply it</span>
+                </div>
               </div>
+
+              <p className="text-xs sm:text-sm text-[#8e8e93] leading-relaxed">
+                You pay before ever knowing if the knowledge will yield actual visibility.
+              </p>
             </div>
 
-            {/* Dynamic Breakdown Table */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 font-mono-code text-xs">
-              <div
-                className={`p-4 rounded-2xl border ${
-                  darkMode
-                    ? 'bg-[#121212] border-[#222222]'
-                    : 'bg-slate-50 border-slate-200'
-                }`}
-              >
-                <span className="text-[#8e8e93] block mb-1 uppercase tracking-wider">
-                  Registration Entry
-                </span>
-                <span className="text-base font-bold text-current block">
-                  ₹999
-                </span>
-                <span className="text-[11px] text-[#8e8e93]">
-                  Paid to enter cohort
-                </span>
-              </div>
+            <div className="mt-6 pt-4 border-t border-inherit text-xs font-mono-code text-[#8e8e93]">
+              Standard passive completion
+            </div>
+          </div>
 
-              <div
-                className={`p-4 rounded-2xl border ${
-                  darkMode
-                    ? 'bg-[#121212] border-[#222222]'
-                    : 'bg-slate-50 border-slate-200'
-                }`}
-              >
-                <span className="text-[#8e8e93] block mb-1 uppercase tracking-wider">
-                  Course Tuition Fee
-                </span>
+          {/* Box 2: Saving.Careers Challenge */}
+          <div
+            className={`p-6 sm:p-8 rounded-3xl border flex flex-col justify-between shadow-2xl relative ${
+              darkMode
+                ? 'bg-[#0a0a0a] border-[#00ff88]/50 ring-1 ring-[#00ff88]/30'
+                : 'bg-white border-[#008744]/50 ring-1 ring-[#008744]/30'
+            }`}
+          >
+            <div>
+              <div className="flex items-center justify-between mb-4">
                 <span
-                  className={`text-base font-bold block ${
-                    activeBranch === 'rank'
-                      ? 'text-[#00ff88]'
-                      : darkMode
-                      ? 'text-white'
-                      : 'text-slate-900'
+                  className={`font-mono-code text-xs uppercase tracking-wider font-bold ${
+                    darkMode ? 'text-[#00ff88]' : 'text-[#008744]'
                   }`}
                 >
-                  {activeBranch === 'rank' ? '₹0 (100% Waived)' : 'Applicable Course Fee'}
+                  Saving.Careers Challenge
                 </span>
-                <span className="text-[11px] text-[#8e8e93]">
-                  {activeBranch === 'rank'
-                    ? 'Triggered upon ranking'
-                    : 'Deferred up to 6 months'}
+                <span className="text-xs font-mono-code px-2 py-0.5 rounded bg-[#00ff88]/20 text-[#00ff88] font-bold">
+                  Performance-Based
                 </span>
               </div>
 
-              <div
-                className={`p-4 rounded-2xl border ${
-                  activeBranch === 'rank'
-                    ? darkMode
-                      ? 'bg-[#00ff88]/10 border-[#00ff88]/30 text-white'
-                      : 'bg-emerald-50 border-[#008744]/30 text-emerald-950'
-                    : darkMode
-                    ? 'bg-[#38bdf8]/10 border-[#38bdf8]/30 text-white'
-                    : 'bg-sky-50 border-[#0284c7]/30 text-sky-950'
-                }`}
-              >
-                <span className="block mb-1 uppercase tracking-wider text-[11px] opacity-80">
-                  Asset Ownership
-                </span>
-                <span className="text-base font-bold block">
-                  100% Yours
-                </span>
-                <span className="text-[11px] opacity-80">
-                  You keep domain &amp; all code
-                </span>
+              {/* Step Diagram */}
+              <div className="space-y-3 font-mono-code text-xs mb-6">
+                <div
+                  className={`p-3 rounded-xl border flex items-center justify-between ${
+                    darkMode ? 'bg-[#141414] border-[#222]' : 'bg-slate-50 border-slate-200'
+                  }`}
+                >
+                  <span className="flex items-center gap-2">
+                    <span className="w-5 h-5 rounded-full bg-[#00ff88]/20 text-[#00ff88] flex items-center justify-center font-bold text-[10px]">
+                      1
+                    </span>
+                    <span>₹999 Registration to start</span>
+                  </span>
+                  <span className="text-[11px] text-[#8e8e93]">Entry Fee</span>
+                </div>
+
+                <div
+                  className={`p-3 rounded-xl border flex items-center justify-between ${
+                    darkMode ? 'bg-[#141414] border-[#222]' : 'bg-slate-50 border-slate-200'
+                  }`}
+                >
+                  <span className="flex items-center gap-2">
+                    <span className="w-5 h-5 rounded-full bg-[#00ff88]/20 text-[#00ff88] flex items-center justify-center font-bold text-[10px]">
+                      2
+                    </span>
+                    <span>Apply SEO, AEO &amp; GEO on real project</span>
+                  </span>
+                  <span className="text-[11px] text-[#8e8e93]">Execution</span>
+                </div>
+
+                <div
+                  className={`p-3 rounded-xl border flex items-center justify-between ${
+                    darkMode
+                      ? 'bg-[#00ff88]/10 border-[#00ff88]/40 text-[#00ff88]'
+                      : 'bg-emerald-50 border-[#008744]/40 text-[#008744]'
+                  }`}
+                >
+                  <span className="flex items-center gap-2 font-bold">
+                    <CheckCircle2 size={16} />
+                    <span>Project ranks according to criteria?</span>
+                  </span>
+                  <span className="font-bold text-xs uppercase">COURSE FEE = ₹0</span>
+                </div>
               </div>
+
+              <p className="text-xs sm:text-sm text-current leading-relaxed">
+                If your project qualifies under the contest criteria: <strong>Your course fee is ₹0</strong>. If not, pay the applicable course fee later within 6 months.
+              </p>
             </div>
 
-            {/* Narrative Explanation */}
-            <p className="text-sm sm:text-base font-sans text-[#8e8e93] leading-relaxed mb-6">
-              {activeBranch === 'rank'
-                ? 'When you hit the published contest ranking thresholds within the evaluation window, your course tuition automatically reconciles to ₹0. You keep the fully optimized, ranking digital asset and all commercial value.'
-                : 'If your project is still climbing the index and requires extended optimization runway, you do not pay on day one. You have a full 6-month buffer to settle the applicable course fee, while retaining everything you built and learned.'}
-            </p>
-
-            <div className="pt-4 border-t border-inherit flex items-center justify-between text-xs font-mono-code text-[#8e8e93]">
-              <span className="flex items-center gap-1.5 text-current">
-                <ShieldCheck size={14} className="text-[#00ff88]" />
-                <span>Zero hidden fees or penalty clauses</span>
-              </span>
-              <span className="text-[#00ff88] font-bold">
-                Transparent Execution
-              </span>
+            <div
+              className={`mt-6 pt-4 border-t border-inherit text-xs font-mono-code flex items-center justify-between ${
+                darkMode ? 'text-[#00ff88]' : 'text-[#008744]'
+              }`}
+            >
+              <span>Zero course fee upfront</span>
+              <span>100% Asset Ownership</span>
             </div>
           </div>
         </div>
 
-        {/* Short Key Takeaway */}
-        <div className="text-center max-w-xl mx-auto">
-          <div
-            className={`inline-block px-5 py-2.5 rounded-xl border font-mono-code text-xs sm:text-sm ${
-              darkMode
-                ? 'bg-[#0a0a0a] border-[#222222] text-[#8e8e93]'
-                : 'bg-slate-50 border-slate-200 text-slate-600'
-            }`}
-          >
-            <span className="text-current font-bold">The Core Mechanic:</span>{' '}
-            ₹999 registration is always separate from the course fee.
+        {/* Clear Rules & Criteria Summary Card */}
+        <div
+          className={`p-5 sm:p-6 rounded-2xl border text-xs font-mono-code ${
+            darkMode ? 'bg-[#0d0d0d] border-[#222]' : 'bg-slate-50 border-slate-200'
+          }`}
+        >
+          <div className="text-current font-bold mb-2 flex items-center gap-2">
+            <ShieldCheck size={16} className="text-[#00ff88]" />
+            <span>What Does &ldquo;Rank&rdquo; Mean?</span>
+          </div>
+          <p className="text-[#8e8e93] leading-relaxed mb-3 font-sans text-xs">
+            Ranking qualification will follow the official contest criteria shared with participants, defining:
+          </p>
+          <div className="flex flex-wrap gap-2 text-[11px]">
+            {[
+              'Eligible project types',
+              'Eligible search platforms',
+              'Target keywords/queries',
+              'Ranking positions',
+              'Verification method',
+              'Tracking period',
+              'Qualification deadline',
+            ].map((rule) => (
+              <span
+                key={rule}
+                className="px-2.5 py-1 rounded-md border border-inherit bg-inherit text-current"
+              >
+                {rule}
+              </span>
+            ))}
           </div>
         </div>
       </div>

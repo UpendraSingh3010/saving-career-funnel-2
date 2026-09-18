@@ -12,7 +12,8 @@ import { Section4Protocol } from './components/Section4Protocol';
 import { Section5Offer } from './components/Section5Offer';
 import { Section6Target } from './components/Section6Target';
 import { Section7Outcome } from './components/Section7Outcome';
-import { Section8Activate } from './components/Section8Activate';
+import { Section8Faq } from './components/Section8Faq';
+import { Section9Registration } from './components/Section9Registration';
 import { Footer } from './components/Footer';
 import { RegistrationModal } from './components/RegistrationModal';
 import { CustomCursor } from './components/CustomCursor';
@@ -95,7 +96,8 @@ export default function App() {
       { id: 'section-offer', name: 'Offer' },
       { id: 'section-target', name: 'Target' },
       { id: 'section-outcome', name: 'Outcome' },
-      { id: 'section-activate', name: 'Activate' },
+      { id: 'section-faq', name: 'FAQ' },
+      { id: 'section-registration', name: 'Register' },
     ];
 
     const observer = new IntersectionObserver(
@@ -163,8 +165,14 @@ export default function App() {
         {/* Section 07: Outcome — "I learned SEO." vs. "I ranked a project." */}
         <Section7Outcome darkMode={darkMode} />
 
-        {/* Section 08: Activate — Ready to stop learning and start proving it? */}
-        <Section8Activate darkMode={darkMode} />
+        {/* Section 08: FAQ — Real Answers, No Ambiguity */}
+        <Section8Faq darkMode={darkMode} />
+
+        {/* Section 09: Registration — Enter the Challenge */}
+        <Section9Registration
+          darkMode={darkMode}
+          onOpenRegister={() => setIsRegisterOpen(true)}
+        />
       </main>
 
       {/* Comprehensive Brand Footer & Site Credits */}
