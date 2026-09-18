@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { BookOpen, Hammer, Sliders, Trophy, ArrowRight, CheckCircle } from 'lucide-react';
+import React from 'react';
+import { BookOpen, Hammer, Sliders, Trophy, ArrowRight, CheckCircle2 } from 'lucide-react';
 
 interface RoadmapSectionProps {
   darkMode: boolean;
@@ -10,255 +10,158 @@ export const RoadmapSection: React.FC<RoadmapSectionProps> = ({
   darkMode,
   onOpenRegister,
 }) => {
-  const [activeStep, setActiveStep] = useState(0);
-
   const steps = [
     {
-      stepNumber: '01',
+      step: '01',
       phase: 'LEARN',
-      title: 'Foundational Knowledge with Nikhil Sir',
-      subtitle: 'Understand What Actually Dictates Rankings',
+      duration: 'Week 1–2',
+      title: 'Search & Retrieval Fundamentals',
       icon: BookOpen,
-      badge: 'Entry: ₹999 Only',
-      desc: 'Join the contest with the ₹999 registration fee without paying any full course fee upfront. Grasp modern organic search principles across SEO, AEO, and GEO. Learn why algorithms and AI models pick certain answers, how search intent shifts, and how to spot real ranking opportunities.',
-      actions: [
-        'Understand algorithmic indexing and crawl budgets',
-        'Learn search intent clustering & AEO snippet frameworks',
-        'Unpack AI citation dynamics for ChatGPT & Perplexity',
-      ],
+      color: '#00ff88',
+      desc: 'Understand what search algorithms and AI models actually evaluate: crawl budgets, entity nodes, semantic intent, and Large Language Model training citations.',
+      milestone: 'Pre-agreed target queries and ranking benchmarks approved by Nikhil Sir.',
     },
     {
-      stepNumber: '02',
+      step: '02',
       phase: 'BUILD',
-      title: 'Choose or Launch a Real Project',
-      subtitle: 'No Imaginary Homework. Real Digital Real Estate.',
+      duration: 'Week 3',
+      title: 'Deploy Live Web Asset',
       icon: Hammer,
-      badge: 'Real Web Asset',
-      desc: 'Pick, launch, or bring an active project: a niche content platform, a personal brand, a micro-tool, a directory, or an e-commerce catalog. Instead of solving toy assignments inside a siloed classroom, you deploy a live entity that will compete on the open web.',
-      actions: [
-        'Select an eligible project niche or domain',
-        'Establish clean technical architecture and metadata',
-        'Set up Google Search Console & analytics tracking',
-      ],
+      color: '#38bdf8',
+      desc: 'No toy assignments. Launch or connect an active website: niche blog, personal brand, directory, SaaS tool, or business site with Google Search Console telemetry.',
+      milestone: 'Live domain indexed, robots.txt configured, and tracking telemetry verified.',
     },
     {
-      stepNumber: '03',
+      step: '03',
       phase: 'OPTIMIZE',
-      title: 'Continuous Execution & Experimentation',
-      subtitle: 'Implement → Test → Measure → Iterate',
+      duration: 'Week 4–6',
+      title: 'Execute Triad Optimization',
       icon: Sliders,
-      badge: 'Live Experimentation',
-      desc: 'Apply every strategy directly to your pages. Conduct keyword gap research, write high-density entity content, structure FAQs for direct answers, establish internal links, fix technical bottlenecks, test schema, and measure indexation week over week.',
-      actions: [
-        'Execute entity-based on-page & answer-snippet formatting',
-        'Build topical authority silos and high-signal citations',
-        'Diagnose indexation delays and tweak content performance',
-      ],
+      color: '#c084fc',
+      desc: 'Systematically execute technical schema, write high-density entity content, structure FAQs for AI direct answers, and build topical authority backlinks.',
+      milestone: 'Measurable impressions climb; pages qualify for Google and Perplexity snippets.',
     },
     {
-      stepNumber: '04',
+      step: '04',
       phase: 'RANK',
-      title: 'The Final Benchmark: Rank Your Project',
-      subtitle: 'Meet Contest Criteria → Course Fee = ₹0',
+      duration: 'Week 7–8',
+      title: 'Reach Target SERP → Fee = ₹0',
       icon: Trophy,
-      badge: '₹0 Fee Milestone',
-      desc: 'Your final challenge is simple: Can you make your project rank? If your project meets the officially defined contest criteria on verified search queries during the tracking period, your course fee is completely waived to ₹0!',
-      actions: [
-        'Track targeted keywords into qualifying search positions',
-        'Submit Search Console proof for official contest audit',
-        'Achieve Course Fee = ₹0 upon successful verification',
-      ],
+      color: '#ff3366',
+      desc: 'Track target queries into qualifying search positions. Submit official Google Search Console audit. Once verified, your course fee is completely waived to ₹0.',
+      milestone: 'Audited ranking proof + ₹0 course fee status certificate.',
     },
   ];
 
   return (
-    <section id="section-roadmap" className="py-24 border-t border-[#222222]/40 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
+    <section id="section-roadmap" className="py-20 sm:py-28 border-t border-[#222222]/40 relative">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Eyebrow & Header */}
         <div className="flex items-center gap-2 mb-4">
           <span className="w-2 h-2 rounded-full bg-[#00ff88]"></span>
           <span className="font-mono-code text-xs text-[#8e8e93] tracking-widest uppercase">
-            The 4-Stage Challenge
+            CHALLENGE ROADMAP // 4-STAGE PROTOCOL
           </span>
         </div>
 
-        <div className="max-w-3xl mb-12">
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4">
-            Your Journey Is Simple:{' '}
-            <span className="text-[#00ff88]">
-              LEARN → BUILD → OPTIMIZE → RANK
-            </span>
+        <div className="max-w-3xl mb-14">
+          <h2 className="font-display text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">
+            A clear 4-stage execution pipeline.
           </h2>
           <p className="text-[#8e8e93] text-base sm:text-lg leading-relaxed">
-            From the moment you register for ₹999, your objective is not just collecting notes.
-            You move through four defined stages focused on building an asset that competes in the real world.
+            You don’t wander through endless video modules. Every stage is tied to an actionable deliverable on your live domain, leading to one verifiable milestone: ranking.
           </p>
         </div>
 
-        {/* 4 Steps Interactive Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Left Step Selectors */}
-          <div className="lg:col-span-5 space-y-3">
-            {steps.map((item, index) => {
-              const Icon = item.icon;
-              const isCurrent = activeStep === index;
-              return (
-                <button
-                  key={item.stepNumber}
-                  onClick={() => setActiveStep(index)}
-                  className={`w-full p-5 rounded-xl border text-left transition-all cursor-pointer flex items-start gap-4 ${
-                    isCurrent
-                      ? darkMode
-                        ? 'bg-[#141414] border-[#00ff88] shadow-[0_0_30px_rgba(0,255,136,0.12)]'
-                        : 'bg-white border-[#00994f] shadow-md'
-                      : darkMode
-                      ? 'bg-[#0d0d0d] border-[#1f1f1f] hover:border-[#2f2f2f]'
-                      : 'bg-[#f8fafc] border-[#e2e8f0] hover:border-[#cbd5e1]'
-                  }`}
-                >
-                  <div
-                    className={`p-3 rounded-lg font-mono-code font-bold text-sm shrink-0 flex items-center justify-center ${
-                      isCurrent
-                        ? 'bg-[#00ff88] text-black'
-                        : darkMode
-                        ? 'bg-[#1f1f1f] text-[#8e8e93]'
-                        : 'bg-[#e2e8f0] text-[#64748b]'
-                    }`}
-                  >
-                    {item.stepNumber}
-                  </div>
-
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center justify-between gap-2">
-                      <span
-                        className={`font-mono-code text-[11px] uppercase tracking-wider font-semibold ${
-                          darkMode ? 'text-[#00ff88]' : 'text-[#008744]'
-                        }`}
-                      >
-                        STAGE: {item.phase}
-                      </span>
-                      <span
-                        className={`font-mono-code text-[10px] px-2 py-0.5 rounded ${
-                          darkMode ? 'bg-[#222222]/50 text-[#8e8e93]' : 'bg-[#e2e8f0] text-[#475569]'
-                        }`}
-                      >
-                        {item.badge}
-                      </span>
-                    </div>
-                    <div className="font-display font-bold text-base mt-0.5 truncate">
-                      {item.title}
-                    </div>
-                    <div className="text-xs text-[#8e8e93] truncate mt-0.5">
-                      {item.subtitle}
-                    </div>
-                  </div>
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Right Step Expanded Card */}
-          <div
-            className={`tilt-card lg:col-span-7 p-6 sm:p-8 lg:p-10 rounded-2xl border transition-all ${
-              darkMode ? 'bg-[#0a0a0a] border-[#1a1a1a] shadow-[0_15px_40px_rgba(0,0,0,0.6)]' : 'bg-white border-[#e2e8f0]'
-            }`}
-          >
-            <div
-              className={`flex items-center justify-between border-b pb-6 mb-6 ${
-                darkMode ? 'border-[#1a1a1a]/70' : 'border-[#e2e8f0]'
-              }`}
-            >
-              <div className="flex items-center gap-3">
-                <div
-                  className={`p-3 rounded-xl ${
-                    darkMode ? 'bg-[#00ff88]/10 text-[#00ff88]' : 'bg-emerald-100 text-[#008744]'
-                  }`}
-                >
-                  {React.createElement(steps[activeStep].icon, { size: 28 })}
-                </div>
-                <div>
-                  <span
-                    className={`font-mono-code text-xs font-bold tracking-wider uppercase ${
-                      darkMode ? 'text-[#00ff88]' : 'text-[#008744]'
-                    }`}
-                  >
-                    STAGE {steps[activeStep].stepNumber} // {steps[activeStep].phase}
-                  </span>
-                  <h3 className="font-display font-bold text-2xl sm:text-3xl">
-                    {steps[activeStep].title}
-                  </h3>
-                </div>
-              </div>
-              <span
-                className={`hidden sm:inline-block font-mono-code text-xs px-3 py-1.5 rounded-full font-bold ${
+        {/* 4 Steps Timeline Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          {steps.map((s, idx) => {
+            const Icon = s.icon;
+            return (
+              <div
+                key={s.step}
+                className={`p-6 rounded-xl border flex flex-col justify-between relative transition-all ${
                   darkMode
-                    ? 'bg-[#00ff88]/15 text-[#00ff88] border border-[#00ff88]/30'
-                    : 'bg-emerald-50 text-[#008744] border border-emerald-200'
+                    ? 'bg-[#0a0a0a] border-[#1c1c1c] hover:border-[#333333]'
+                    : 'bg-white border-[#e2e8f0] shadow-sm hover:border-[#cbd5e1]'
                 }`}
               >
-                {steps[activeStep].badge}
-              </span>
-            </div>
+                <div>
+                  {/* Step Code & Duration */}
+                  <div className="flex items-center justify-between pb-3 mb-4 border-b border-inherit">
+                    <span
+                      className="font-mono-code text-xs font-bold uppercase tracking-widest"
+                      style={{ color: s.color }}
+                    >
+                      [{s.step}] {s.phase}
+                    </span>
+                    <span className="font-mono-code text-[11px] text-[#8e8e93]">
+                      {s.duration}
+                    </span>
+                  </div>
 
-            <p className="text-[#8e8e93] text-sm sm:text-base leading-relaxed mb-6 font-normal">
-              {steps[activeStep].desc}
-            </p>
+                  {/* Icon & Title */}
+                  <div className="flex items-center gap-2.5 mb-3">
+                    <div
+                      className="p-2 rounded-lg shrink-0"
+                      style={{
+                        backgroundColor: `${s.color}15`,
+                        color: s.color,
+                      }}
+                    >
+                      <Icon size={18} />
+                    </div>
+                    <h3 className="font-display font-bold text-base leading-snug">
+                      {s.title}
+                    </h3>
+                  </div>
 
-            <div className="space-y-3 mb-8">
-              <div className="font-mono-code text-xs uppercase tracking-wider text-[#8e8e93]">
-                Concrete Deliverables in this Stage:
-              </div>
-              {steps[activeStep].actions.map((act, i) => (
+                  {/* Description */}
+                  <p className="text-xs text-[#8e8e93] leading-relaxed mb-5">
+                    {s.desc}
+                  </p>
+                </div>
+
+                {/* Milestone Deliverable Box */}
                 <div
-                  key={i}
-                  className={`p-3.5 rounded-xl border flex items-center gap-3 text-xs sm:text-sm font-mono-code ${
+                  className={`p-3 rounded-lg border text-[11px] font-mono-code ${
                     darkMode
-                      ? 'bg-[#111111] border-[#1a1a1a]'
-                      : 'bg-[#f8fafc] border-[#e2e8f0]'
+                      ? 'bg-[#121212] border-[#222222] text-[#d4d4d4]'
+                      : 'bg-[#f8fafc] border-[#e2e8f0] text-[#334155]'
                   }`}
                 >
-                  <CheckCircle size={16} className={darkMode ? 'text-[#00ff88] shrink-0' : 'text-[#008744] shrink-0'} />
-                  <span>{act}</span>
+                  <div className="text-[#8e8e93] uppercase text-[9.5px] font-bold mb-1">
+                    Stage Deliverable:
+                  </div>
+                  <div className="flex items-start gap-1.5">
+                    <CheckCircle2 size={12} className="shrink-0 mt-0.5 text-[#00ff88]" />
+                    <span>{s.milestone}</span>
+                  </div>
                 </div>
-              ))}
-            </div>
-
-            <div
-              className={`pt-4 border-t flex flex-col sm:flex-row items-center justify-between gap-4 ${
-                darkMode ? 'border-[#1a1a1a]/70' : 'border-[#e2e8f0]'
-              }`}
-            >
-              <div className="text-xs font-mono-code text-[#8e8e93]">
-                Ready to take on this challenge?
               </div>
-              <button
-                onClick={onOpenRegister}
-                className="magnetic w-full sm:w-auto px-6 py-3 rounded-xl font-mono-code text-xs font-bold uppercase tracking-wider bg-[#00ff88] text-black hover:bg-[#00cc6a] flex items-center justify-center gap-2 cursor-pointer"
-              >
-                <span>Join Challenge for ₹999</span>
-                <ArrowRight size={14} />
-              </button>
-            </div>
-          </div>
+            );
+          })}
         </div>
 
-        {/* Mindset Quote Strip */}
+        {/* Clean Protocol Callout */}
         <div
-          className={`mt-12 p-6 rounded-2xl border text-center ${
-            darkMode ? 'bg-[#0f0f0f] border-[#222222]' : 'bg-[#f8fafc] border-[#e2e8f0]'
+          className={`p-5 sm:p-6 rounded-xl border flex flex-col sm:flex-row items-center justify-between gap-4 ${
+            darkMode
+              ? 'bg-[#0f0f0f] border-[#1e1e1e]'
+              : 'bg-[#f8fafc] border-[#e2e8f0]'
           }`}
         >
-          <div
-            className={`font-mono-code text-xs uppercase tracking-wider mb-2 font-bold ${
-              darkMode ? 'text-[#00ff88]' : 'text-[#008744]'
-            }`}
-          >
-            The Core Philosophy
+          <div className="text-xs sm:text-sm font-mono-code text-[#8e8e93]">
+            <span className="text-current font-bold">READY TO COMMENCE?</span>{' '}
+            Reserve your batch pass for ₹999. Course fee is ₹0 if you achieve qualifying rank.
           </div>
-          <blockquote className="font-display text-lg sm:text-xl font-medium max-w-2xl mx-auto italic text-current">
-            "Skills become truly valuable when you can apply them. Your project becomes your laboratory,
-            and its real search ranking becomes your proof."
-          </blockquote>
+          <button
+            onClick={onOpenRegister}
+            className="w-full sm:w-auto px-5 py-2.5 rounded-lg font-mono-code text-xs font-bold uppercase tracking-wider bg-[#00ff88] text-black hover:bg-[#00cc6a] transition-all flex items-center justify-center gap-1.5 shrink-0 cursor-pointer"
+          >
+            <span>Lock Seat For ₹999</span>
+            <ArrowRight size={13} />
+          </button>
         </div>
       </div>
     </section>

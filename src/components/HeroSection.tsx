@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, ShieldCheck, Zap, TrendingUp, Sparkles, Award } from 'lucide-react';
+import { ArrowRight, Terminal, ShieldCheck, CheckCircle2 } from 'lucide-react';
 
 interface HeroSectionProps {
   onOpenRegister: () => void;
@@ -13,295 +13,196 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   return (
     <section
       id="section-hero"
-      className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden"
+      className="relative pt-28 pb-16 sm:pt-36 sm:pb-24 overflow-hidden"
     >
-      {/* Subtle ambient cyber grid background */}
+      {/* Background radial accent glow */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-20 dark:opacity-25"
+        className="absolute inset-0 pointer-events-none opacity-20"
         style={{
-          backgroundImage: `radial-gradient(circle at 50% 20%, rgba(0, 255, 136, 0.15) 0%, transparent 65%)`,
-        }}
-      />
-      <div
-        className="absolute inset-0 pointer-events-none opacity-5 dark:opacity-10"
-        style={{
-          backgroundImage: `linear-gradient(to right, #00ff88 1px, transparent 1px), linear-gradient(to bottom, #00ff88 1px, transparent 1px)`,
-          backgroundSize: '48px 48px',
+          backgroundImage: `radial-gradient(circle at 50% 15%, rgba(0, 255, 136, 0.18) 0%, transparent 60%)`,
         }}
       />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Tag */}
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Eyebrow Protocol Tag (Authentic Saving.Careers Style) */}
         <div className="flex items-center gap-2 mb-6">
-          <span className="w-2 h-2 rounded-full bg-[#00ff88]"></span>
-          <span className="font-mono-code text-xs text-[#8e8e93] tracking-widest uppercase">
-            A Practical Learning Contest by Saving.Careers with Nikhil Sir
+          <span className="w-2 h-2 rounded-full bg-[#00ff88] animate-pulse"></span>
+          <span className="font-mono-code text-[11px] sm:text-xs text-[#8e8e93] tracking-widest uppercase">
+            CHALLENGE PROTOCOL // SAVING.CAREERS WITH NIKHIL SIR
           </span>
         </div>
 
         {/* Main Headline */}
-        <div className="max-w-4xl">
-          <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.08] mb-6">
-            Learn SEO, AEO &amp; GEO.{' '}
+        <div className="max-w-4xl mb-6">
+          <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.06]">
+            Don’t just study SEO.{' '}
             <span
-              className={`block text-transparent bg-clip-text ${
-                darkMode
-                  ? 'bg-gradient-to-r from-[#00ff88] via-[#00cc6a] to-[#22c55e]'
-                  : 'bg-gradient-to-r from-[#008744] via-[#059669] to-[#047857]'
-              }`}
-            >
-              Build a Real Project.
-            </span>
-            Make It Rank.
-          </h1>
-
-          <p className="text-lg sm:text-xl text-[#8e8e93] max-w-3xl leading-relaxed mb-10 font-normal">
-            Stop learning digital marketing only through passive videos and theory.
-            Join an outcome-driven learning challenge: master <strong className="text-current font-semibold">SEO, AEO, and GEO</strong>,
-            apply those concepts to your own live website, optimize it step by step, and work towards one verifiable outcome:{' '}
-            <span className={darkMode ? 'text-[#00ff88] font-semibold' : 'text-[#008744] font-semibold'}>
-              Rank Your Project.
-            </span>
-          </p>
-        </div>
-
-        {/* Hero Offer Box - The Core Proposition */}
-        <div
-          className={`tilt-card p-6 sm:p-8 lg:p-10 rounded-2xl border transition-all relative overflow-hidden ${
-            darkMode
-              ? 'bg-[#0a0a0a] border-[#1a1a1a] shadow-[0_20px_60px_rgba(0,0,0,0.8)]'
-              : 'bg-white border-[#e2e8f0] shadow-[0_15px_40px_rgba(0,0,0,0.06)]'
-          }`}
-        >
-          {/* Subtle top edge glow & Terminal dots */}
-          <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#00ff88] to-transparent"></div>
-          <div
-            className={`flex items-center justify-between pb-4 mb-4 border-b text-[11px] font-mono-code text-[#8e8e93] ${
-              darkMode ? 'border-[#1a1a1a]/60' : 'border-[#e2e8f0]'
-            }`}
-          >
-            <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]"></span>
-              <span className="w-2.5 h-2.5 rounded-full bg-[#febc2e]"></span>
-              <span className="w-2.5 h-2.5 rounded-full bg-[#28c840]"></span>
-              <span className="ml-2 text-xs tracking-wider uppercase text-[#8e8e93]">[PROTOCOL_ACTIVE: 2026]</span>
-            </div>
-            <span className={`flex items-center gap-1.5 font-bold ${darkMode ? 'text-[#00ff88]' : 'text-[#008744]'}`}>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#00ff88] animate-pulse"></span>
-              LIVE CONTEST
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            {/* Left offer details */}
-            <div className="lg:col-span-7 space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono-code font-bold bg-[#ff3366]/10 text-[#ff3366] border border-[#ff3366]/30">
-                <Sparkles size={13} />
-                PERFORMANCE-BASED LEARNING
-              </div>
-
-              <div className="space-y-2">
-                <div className="font-display text-2xl sm:text-3xl font-bold">
-                  Register for just{' '}
-                  <span
-                    className={`font-mono-code text-3xl sm:text-4xl ${
-                      darkMode ? 'text-[#00ff88]' : 'text-[#008744]'
-                    }`}
-                  >
-                    ₹999
-                  </span>
-                </div>
-                <p className="text-[#8e8e93] text-sm sm:text-base leading-relaxed">
-                  And you don’t need to pay the course fee upfront. If your project successfully ranks according to the official contest criteria:
-                </p>
-              </div>
-
-              {/* Course fee = 0 banner */}
-              <div
-                className={`p-4 sm:p-5 rounded-xl border flex flex-col sm:flex-row sm:items-center justify-between gap-3 ${
-                  darkMode
-                    ? 'bg-gradient-to-r from-[#00ff88]/15 via-[#00ff88]/5 to-transparent border-[#00ff88]/30'
-                    : 'bg-gradient-to-r from-emerald-50 via-emerald-50/50 to-transparent border-emerald-200'
-                }`}
-              >
-                <div>
-                  <span className="font-mono-code text-xs text-[#8e8e93] uppercase block tracking-wider">
-                    Target Outcome
-                  </span>
-                  <div
-                    className={`font-display font-black text-2xl sm:text-3xl tracking-tight ${
-                      darkMode ? 'text-[#00ff88]' : 'text-[#008744]'
-                    }`}
-                  >
-                    COURSE FEE = ₹0
-                  </div>
-                </div>
-                <div className="text-xs font-mono-code text-[#8e8e93] max-w-[240px]">
-                  ✓ 100% Fee Waived if Ranked according to contest benchmarks
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-3 pt-2">
-                <button
-                  id="hero-register-cta"
-                  onClick={onOpenRegister}
-                  className="magnetic px-8 py-4 rounded-xl font-mono-code text-sm font-bold tracking-wider uppercase transition-all duration-200 bg-[#00ff88] text-black hover:bg-[#00cc6a] hover:shadow-[0_0_30px_rgba(0,255,136,0.4)] flex items-center justify-center gap-2 cursor-pointer"
-                >
-                  <span>Register for ₹999</span>
-                  <ArrowRight size={16} />
-                </button>
-                <a
-                  href="#section-pricing"
-                  className={`px-6 py-4 rounded-xl font-mono-code text-sm font-semibold tracking-wider transition-all flex items-center justify-center gap-2 border ${
-                    darkMode
-                      ? 'border-[#262626] text-[#e5e5e5] hover:bg-[#141414]'
-                      : 'border-[#e2e8f0] text-[#0f172a] hover:bg-[#f8fafc]'
-                  }`}
-                >
-                  <span>See How Ranking Works</span>
-                </a>
-              </div>
-
-              <p className="text-xs font-mono-code text-[#666666] pt-1">
-                *Registration fee (₹999) and course fee are separate. Program terms and ranking criteria apply.
-              </p>
-            </div>
-
-            {/* Right side summary cards */}
-            <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3.5">
-              <div
-                className={`p-4 rounded-xl border flex items-start gap-3.5 ${
-                  darkMode
-                    ? 'bg-[#111111] border-[#1a1a1a]'
-                    : 'bg-[#f8fafc] border-[#e2e8f0]'
-                }`}
-              >
-                <div
-                  className={`p-2.5 rounded-lg shrink-0 ${
-                    darkMode ? 'bg-[#00ff88]/10 text-[#00ff88]' : 'bg-emerald-100 text-[#008744]'
-                  }`}
-                >
-                  <TrendingUp size={20} />
-                </div>
-                <div>
-                  <div className="font-display font-bold text-sm">Real Live Project</div>
-                  <div className="text-xs text-[#8e8e93] mt-0.5">
-                    No dummy assignments. Build and optimize something that actively competes on Google &amp; AI engines.
-                  </div>
-                </div>
-              </div>
-
-              <div
-                className={`p-4 rounded-xl border flex items-start gap-3.5 ${
-                  darkMode
-                    ? 'bg-[#111111] border-[#1a1a1a]'
-                    : 'bg-[#f8fafc] border-[#e2e8f0]'
-                }`}
-              >
-                <div
-                  className={`p-2.5 rounded-lg shrink-0 ${
-                    darkMode ? 'bg-[#00ff88]/10 text-[#00ff88]' : 'bg-emerald-100 text-[#008744]'
-                  }`}
-                >
-                  <Zap size={20} />
-                </div>
-                <div>
-                  <div className="font-display font-bold text-sm">SEO + AEO + GEO</div>
-                  <div className="text-xs text-[#8e8e93] mt-0.5">
-                    Rank on traditional Google, dominate AI Overviews, and get cited inside ChatGPT &amp; Perplexity.
-                  </div>
-                </div>
-              </div>
-
-              <div
-                className={`p-4 rounded-xl border flex items-start gap-3.5 ${
-                  darkMode
-                    ? 'bg-[#111111] border-[#1a1a1a]'
-                    : 'bg-[#f8fafc] border-[#e2e8f0]'
-                }`}
-              >
-                <div
-                  className={`p-2.5 rounded-lg shrink-0 ${
-                    darkMode ? 'bg-[#00ff88]/10 text-[#00ff88]' : 'bg-emerald-100 text-[#008744]'
-                  }`}
-                >
-                  <Award size={20} />
-                </div>
-                <div>
-                  <div className="font-display font-bold text-sm">Mentored by Nikhil Sir</div>
-                  <div className="text-xs text-[#8e8e93] mt-0.5">
-                    Direct guidance from 20+ yrs growth strategist who scaled 500+ startups &amp; organic engines.
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Quick KPI Strip */}
-        <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div
-            className={`tilt-card p-4 rounded-xl border text-center ${
-              darkMode ? 'border-[#1a1a1a] bg-[#0a0a0a]' : 'border-[#e2e8f0] bg-white shadow-sm'
-            }`}
-          >
-            <div
-              className={`font-mono-code text-2xl sm:text-3xl font-bold ${
+              className={`block ${
                 darkMode ? 'text-[#00ff88]' : 'text-[#008744]'
               }`}
             >
-              ₹999
-            </div>
-            <div className="text-xs font-mono-code text-[#8e8e93] mt-1">
-              Seat Lock Entry Fee
-            </div>
-          </div>
+              Make your project rank.
+            </span>
+            <span className="block text-2xl sm:text-4xl lg:text-5xl font-bold opacity-90 mt-2">
+              If it ranks, your course fee is ₹0.
+            </span>
+          </h1>
+        </div>
+
+        {/* Precise, scannable subhead */}
+        <p className="text-base sm:text-lg text-[#8e8e93] max-w-2xl leading-relaxed mb-10">
+          Stop collecting passive certificates. Master modern <strong className="text-current font-semibold">SEO (Google)</strong>,{' '}
+          <strong className="text-current font-semibold">AEO (AI Overviews)</strong>, and{' '}
+          <strong className="text-current font-semibold">GEO (ChatGPT &amp; Perplexity citations)</strong> on your own live website.
+          Reach verified organic ranking, and pay ₹0 course fee.
+        </p>
+
+        {/* Authentic Saving.Careers System Protocol Terminal Card */}
+        <div
+          className={`rounded-xl border transition-all overflow-hidden mb-12 ${
+            darkMode
+              ? 'bg-[#0a0a0a] border-[#1e1e1e] shadow-[0_15px_40px_rgba(0,0,0,0.8)]'
+              : 'bg-white border-[#e2e8f0] shadow-[0_10px_30px_rgba(0,0,0,0.05)]'
+          }`}
+        >
+          {/* Terminal Titlebar */}
           <div
-            className={`tilt-card p-4 rounded-xl border text-center ${
-              darkMode ? 'border-[#1a1a1a] bg-[#0a0a0a]' : 'border-[#e2e8f0] bg-white shadow-sm'
+            className={`px-4 sm:px-6 py-3 border-b flex items-center justify-between text-xs font-mono-code ${
+              darkMode
+                ? 'bg-[#0f0f0f] border-[#1e1e1e] text-[#8e8e93]'
+                : 'bg-[#f8fafc] border-[#e2e8f0] text-[#64748b]'
             }`}
           >
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#ff3366]"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-[#f59e0b]"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-[#00ff88]"></span>
+              <span className="ml-2 font-semibold tracking-wider uppercase text-current">
+                PROTOCOL_BOOT // CONTEST_DIRECTIVE
+              </span>
+            </div>
+            <div className="flex items-center gap-1.5 font-bold">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#00ff88]"></span>
+              <span className={darkMode ? 'text-[#00ff88]' : 'text-[#008744]'}>BATCH OPEN</span>
+            </div>
+          </div>
+
+          {/* Terminal Body Content */}
+          <div className="p-5 sm:p-8">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+              {/* Left Column: Key Parameters */}
+              <div className="lg:col-span-7 space-y-3 font-mono-code text-xs sm:text-sm">
+                <div className="flex items-start gap-2 text-[#8e8e93]">
+                  <span className="text-[#00ff88] font-bold">&gt;</span>
+                  <span><strong className="text-current">CHALLENGE</strong>: Deploy &amp; rank live project on Google + AI search</span>
+                </div>
+                <div className="flex items-start gap-2 text-[#8e8e93]">
+                  <span className="text-[#00ff88] font-bold">&gt;</span>
+                  <span><strong className="text-current">CURRICULUM</strong>: SEO (Google SERP) + AEO (Direct Answers) + GEO (LLM Citations)</span>
+                </div>
+                <div className="flex items-start gap-2 text-[#8e8e93]">
+                  <span className="text-[#00ff88] font-bold">&gt;</span>
+                  <span><strong className="text-current">MENTOR</strong>: Nikhil Sharma (Founder, 20+ yrs growth strategist)</span>
+                </div>
+                <div className="flex items-start gap-2 text-[#8e8e93]">
+                  <span className="text-[#00ff88] font-bold">&gt;</span>
+                  <span><strong className="text-current">SEAT LOCK</strong>: ₹999 entry registration today</span>
+                </div>
+                <div className="flex items-start gap-2 text-[#8e8e93]">
+                  <span className="text-[#00ff88] font-bold">&gt;</span>
+                  <span><strong className="text-current">UPFRONT FEE</strong>: ₹0 (Zero course fee required upfront)</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-[#00ff88] font-bold">&gt;</span>
+                  <span className={darkMode ? 'text-[#00ff88] font-bold' : 'text-[#008744] font-bold'}>
+                    SUCCESS OUTCOME: If project ranks on agreed criteria → COURSE FEE = ₹0
+                  </span>
+                </div>
+              </div>
+
+              {/* Right Column: Clear Action Box */}
+              <div
+                className={`lg:col-span-5 p-5 rounded-xl border flex flex-col justify-between gap-4 ${
+                  darkMode
+                    ? 'bg-[#121212] border-[#222222]'
+                    : 'bg-[#f8fafc] border-[#e2e8f0]'
+                }`}
+              >
+                <div>
+                  <div className="text-[11px] font-mono-code text-[#8e8e93] uppercase tracking-wider">
+                    Registration Pass
+                  </div>
+                  <div className="flex items-baseline gap-2 mt-1">
+                    <span
+                      className={`font-mono-code text-3xl sm:text-4xl font-black ${
+                        darkMode ? 'text-[#00ff88]' : 'text-[#008744]'
+                      }`}
+                    >
+                      ₹999
+                    </span>
+                    <span className="text-xs font-mono-code text-[#8e8e93]">
+                      to reserve your batch seat
+                    </span>
+                  </div>
+                  <div className="mt-2 text-xs text-[#8e8e93] leading-relaxed">
+                    No upfront course fee. Rank your project under Nikhil Sir’s framework and pay nothing more.
+                  </div>
+                </div>
+
+                <div className="flex flex-col gap-2 pt-2">
+                  <button
+                    id="hero-register-cta"
+                    onClick={onOpenRegister}
+                    className="w-full py-3.5 px-5 rounded-lg font-mono-code text-xs font-bold uppercase tracking-wider bg-[#00ff88] text-black hover:bg-[#00cc6a] hover:shadow-[0_0_20px_rgba(0,255,136,0.3)] transition-all flex items-center justify-center gap-2 cursor-pointer"
+                  >
+                    <span>Enter Challenge — ₹999</span>
+                    <ArrowRight size={14} />
+                  </button>
+
+                  <a
+                    href="#section-pricing"
+                    className={`w-full py-2.5 px-4 rounded-lg font-mono-code text-xs font-semibold text-center border transition-all ${
+                      darkMode
+                        ? 'border-[#262626] text-[#8e8e93] hover:text-white hover:bg-[#1a1a1a]'
+                        : 'border-[#cbd5e1] text-[#475569] hover:text-black hover:bg-[#e2e8f0]'
+                    }`}
+                  >
+                    How the ₹0 Fee &amp; Rules Work ↓
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Clean 3-Metric Strip (Direct Reference to saving.careers Hero Footer) */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2 border-t border-[#222222]/40">
+          <div className="py-2">
             <div
-              className={`font-mono-code text-2xl sm:text-3xl font-bold ${
+              className={`font-mono-code text-3xl font-extrabold ${
                 darkMode ? 'text-[#00ff88]' : 'text-[#008744]'
               }`}
             >
               ₹0
             </div>
             <div className="text-xs font-mono-code text-[#8e8e93] mt-1">
-              Course Fee If Ranked
+              Course Fee if your project ranks
             </div>
           </div>
-          <div
-            className={`tilt-card p-4 rounded-xl border text-center ${
-              darkMode ? 'border-[#1a1a1a] bg-[#0a0a0a]' : 'border-[#e2e8f0] bg-white shadow-sm'
-            }`}
-          >
-            <div
-              className={`font-mono-code text-2xl sm:text-3xl font-bold ${
-                darkMode ? 'text-white' : 'text-[#0a0f1d]'
-              }`}
-            >
-              3 Pillars
+          <div className="py-2">
+            <div className="font-mono-code text-3xl font-extrabold text-current">
+              3-in-1 Stack
             </div>
             <div className="text-xs font-mono-code text-[#8e8e93] mt-1">
-              SEO • AEO • GEO
+              SEO (Google) + AEO (Answers) + GEO (AI Citations)
             </div>
           </div>
-          <div
-            className={`tilt-card p-4 rounded-xl border text-center ${
-              darkMode ? 'border-[#1a1a1a] bg-[#0a0a0a]' : 'border-[#e2e8f0] bg-white shadow-sm'
-            }`}
-          >
-            <div
-              className={`font-mono-code text-2xl sm:text-3xl font-bold ${
-                darkMode ? 'text-white' : 'text-[#0a0f1d]'
-              }`}
-            >
-              6 Months
+          <div className="py-2">
+            <div className="font-mono-code text-3xl font-extrabold text-current">
+              100% Real
             </div>
             <div className="text-xs font-mono-code text-[#8e8e93] mt-1">
-              Flexible Pay Buffer
+              Live indexable website &amp; Google Search Console proof
             </div>
           </div>
         </div>

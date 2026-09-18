@@ -113,72 +113,45 @@ export const FaqCtaSection: React.FC<FaqCtaSectionProps> = ({
 
         {/* Final Conversion Gate Card */}
         <div
-          className={`tilt-card p-8 sm:p-12 lg:p-16 rounded-3xl border text-center relative overflow-hidden ${
+          className={`p-8 sm:p-12 lg:p-14 rounded-2xl border text-center relative overflow-hidden ${
             darkMode
-              ? 'bg-[#0a0f0c] border-[#00ff88]/40 shadow-[0_0_80px_rgba(0,255,136,0.14)]'
-              : 'bg-gradient-to-b from-white to-emerald-50/50 border-[#00994f]/30 shadow-lg'
+              ? 'bg-[#0a0a0a] border-[#1e1e1e] shadow-[0_15px_40px_rgba(0,0,0,0.8)]'
+              : 'bg-white border-[#e2e8f0] shadow-md'
           }`}
         >
-          {/* Top glow */}
-          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#00ff88] to-transparent"></div>
-
-          <div className="max-w-3xl mx-auto space-y-6">
-            <div
-              className={`inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono-code font-bold ${
-                darkMode
-                  ? 'bg-[#00ff88]/10 text-[#00ff88] border border-[#00ff88]/20'
-                  : 'bg-emerald-50 text-[#008744] border border-emerald-200'
-              }`}
-            >
-              <Sparkles size={14} />
-              LIMITED SEATS PER BATCH
+          <div className="max-w-2xl mx-auto space-y-5">
+            <div className="flex items-center justify-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#00ff88] animate-pulse"></span>
+              <span className="font-mono-code text-[11px] text-[#8e8e93] tracking-widest uppercase">
+                COMMENCE PROTOCOL // BATCH ENROLLMENT
+              </span>
             </div>
 
-            <h3 className="font-display font-black text-3xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.1]">
-              Stop Just Learning SEO.{' '}
-              <span
-                className={`block text-transparent bg-clip-text ${
-                  darkMode
-                    ? 'bg-gradient-to-r from-[#00ff88] via-[#00cc6a] to-[#22c55e]'
-                    : 'bg-gradient-to-r from-[#008744] via-[#059669] to-[#047857]'
-                }`}
-              >
-                Start Proving You Can Apply It.
+            <h3 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl tracking-tight">
+              Ready to build and rank?{' '}
+              <span className={darkMode ? 'text-[#00ff88]' : 'text-[#008744]'}>
+                Enter the challenge.
               </span>
             </h3>
 
-            <p className="text-sm sm:text-base text-[#8e8e93] max-w-xl mx-auto font-normal">
-              Register for ₹999. Learn SEO, AEO &amp; GEO with Nikhil Sir. Build a real project. Optimize it.
-              Make it rank. If it qualifies according to the contest criteria, your course fee becomes ₹0.
+            <p className="text-xs sm:text-sm text-[#8e8e93] leading-relaxed max-w-lg mx-auto">
+              Lock your seat for ₹999 today. Master modern SEO, AEO, and GEO under Nikhil Sir. Reach your target ranking, and pay ₹0 course fee.
             </p>
 
-            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="pt-2 flex justify-center">
               <button
                 id="final-cta-btn"
                 onClick={onOpenRegister}
-                className="magnetic w-full sm:w-auto px-10 py-4 rounded-xl font-mono-code text-sm sm:text-base font-bold uppercase tracking-wider bg-[#00ff88] text-black hover:bg-[#00cc6a] hover:shadow-[0_0_35px_rgba(0,255,136,0.4)] flex items-center justify-center gap-2.5 cursor-pointer transition-all duration-200"
+                className="w-full sm:w-auto px-8 py-3.5 rounded-lg font-mono-code text-xs font-bold uppercase tracking-wider bg-[#00ff88] text-black hover:bg-[#00cc6a] hover:shadow-[0_0_20px_rgba(0,255,136,0.3)] transition-all flex items-center justify-center gap-2 cursor-pointer"
               >
-                <span>Register for ₹999</span>
-                <ArrowRight size={18} />
+                <span>Enter Challenge — ₹999</span>
+                <ArrowRight size={14} />
               </button>
             </div>
 
-            <div className="pt-4 flex flex-wrap items-center justify-center gap-4 text-xs font-mono-code text-[#8e8e93]">
-              <span className="flex items-center gap-1.5">
-                <ShieldCheck size={14} className={darkMode ? 'text-[#00ff88]' : 'text-[#008744]'} />
-                Zero Upfront Course Fee
-              </span>
-              <span>•</span>
-              <span>100% Real Live Project</span>
-              <span>•</span>
-              <span>Mentored by Nikhil Sir</span>
-              <span>•</span>
-              <span>Saving.Careers × Nikhil Sir</span>
+            <div className="pt-2 text-[11px] font-mono-code text-[#8e8e93]">
+              *Registration fee (₹999) and course fee are separate. Clear, pre-agreed ranking criteria apply.
             </div>
-
-            <p className="text-[11px] font-mono-code text-[#666666] pt-2">
-              Registration fee (₹999) and course fee are separate. Program terms, qualification benchmarks, and timelines apply.
-            </p>
           </div>
         </div>
       </div>
